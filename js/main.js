@@ -13,6 +13,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initModals();
   initClipboardAndContact();
   initScrollspy();
+  initScrollAnimations();
   initAudioFX();
 });
 
@@ -91,6 +92,30 @@ function initCanvas() {
     mouse.x = null;
     mouse.y = null;
   });
+
+  // Mobile Touch Support for Canvas Particles & Sparks
+  const handleTouch = (e) => {
+    if (e.touches && e.touches.length > 0) {
+      mouse.prevX = mouse.x;
+      mouse.prevY = mouse.y;
+      mouse.x = e.touches[0].clientX;
+      mouse.y = e.touches[0].clientY;
+
+      if (Math.random() < 0.75) {
+        sparks.push(new Spark(mouse.x, mouse.y));
+        if (sparks.length > 30) sparks.shift();
+      }
+    }
+  };
+
+  window.addEventListener('touchstart', handleTouch, { passive: true });
+  window.addEventListener('touchmove', handleTouch, { passive: true });
+  window.addEventListener('touchend', () => {
+    setTimeout(() => {
+      mouse.x = null;
+      mouse.y = null;
+    }, 450);
+  }, { passive: true });
 
   class Particle {
     constructor() {
@@ -222,7 +247,7 @@ function initCanvas() {
 }
 
 /* ==========================================================================
-   2.1 MOUSE-DRIVEN BACKGROUND PARALLAX, SPOTLIGHT & 3D CARD TILT
+   2.1 MOUSE & MOBILE TOUCH-DRIVEN PARALLAX, AMBIENT WAVE & 3D TILT
    ========================================================================== */
 function initMouseAnimations() {
   const spotlight = document.getElementById('cursorSpotlight');
@@ -236,15 +261,12 @@ function initMouseAnimations() {
   let mouseY = window.innerHeight / 2;
   let curX = mouseX;
   let curY = mouseY;
+  let lastInteractionTime = Date.now();
+  let isInteracting = false;
 
-  // Window-level mouse tracking
-  window.addEventListener('mousemove', (e) => {
-    mouseX = e.clientX;
-    mouseY = e.clientY;
-
-    // Parallax background orbs
-    const normX = (e.clientX / window.innerWidth - 0.5) * 2;
-    const normY = (e.clientY / window.innerHeight - 0.5) * 2;
+  function updateParallax(x, y) {
+    const normX = (x / window.innerWidth - 0.5) * 2;
+    const normY = (y / window.innerHeight - 0.5) * 2;
 
     if (orb1) {
       orb1.style.transform = `translate3d(${normX * 60}px, ${normY * 45}px, 0)`;
@@ -255,12 +277,71 @@ function initMouseAnimations() {
     if (orb3) {
       orb3.style.transform = `translate3d(${normX * 45}px, ${-normY * 50}px, 0)`;
     }
+  }
+
+  // Desktop Mouse Movement
+  window.addEventListener('mousemove', (e) => {
+    mouseX = e.clientX;
+    mouseY = e.clientY;
+    lastInteractionTime = Date.now();
+    isInteracting = true;
+    updateParallax(mouseX, mouseY);
   });
 
-  // Smooth Spotlight Animation Loop (Lerp)
+  // Mobile Touch Movement & Parallax Tracking
+  const handleTouchParallax = (e) => {
+    if (e.touches && e.touches.length > 0) {
+      mouseX = e.touches[0].clientX;
+      mouseY = e.touches[0].clientY;
+      lastInteractionTime = Date.now();
+      isInteracting = true;
+      updateParallax(mouseX, mouseY);
+    }
+  };
+
+  window.addEventListener('touchstart', handleTouchParallax, { passive: true });
+  window.addEventListener('touchmove', handleTouchParallax, { passive: true });
+  window.addEventListener('touchend', () => {
+    isInteracting = false;
+    lastInteractionTime = Date.now();
+  }, { passive: true });
+
+  // Mobile Gyroscope / Device Tilt Parallax (when supported)
+  if (window.DeviceOrientationEvent) {
+    window.addEventListener('deviceorientation', (e) => {
+      if (e.gamma !== null && e.beta !== null && !isInteracting) {
+        // gamma: left-to-right tilt [-90, 90]
+        // beta: front-to-back tilt [-180, 180] (standard viewing around 35-50 deg)
+        const tiltX = Math.max(-25, Math.min(25, e.gamma));
+        const tiltY = Math.max(-25, Math.min(25, e.beta - 40));
+
+        if (heroWrapper && window.innerWidth <= 768) {
+          heroWrapper.style.transform = `perspective(1000px) rotateX(${-tiltY * 0.4}deg) rotateY(${tiltX * 0.4}deg) scale3d(1.01, 1.01, 1.01)`;
+        }
+
+        if (orb1) orb1.style.transform = `translate3d(${tiltX * 2}px, ${tiltY * 1.8}px, 0)`;
+        if (orb2) orb2.style.transform = `translate3d(${-tiltX * 1.8}px, ${-tiltY * 1.5}px, 0)`;
+        if (orb3) orb3.style.transform = `translate3d(${tiltX * 1.5}px, ${-tiltY * 2}px, 0)`;
+      }
+    });
+  }
+
+  // Smooth Spotlight Loop with Organic Ambient Float on Mobile / Idle
+  let ambientTime = 0;
   function renderSpotlight() {
-    curX += (mouseX - curX) * 0.12;
-    curY += (mouseY - curY) * 0.12;
+    ambientTime += 0.02;
+
+    // When idle (common on mobile reading or tablets), float gracefully
+    if (!isInteracting && Date.now() - lastInteractionTime > 1200) {
+      const ambientX = (window.innerWidth / 2) + Math.sin(ambientTime * 0.6) * (window.innerWidth * 0.28);
+      const ambientY = (window.innerHeight * 0.38) + Math.cos(ambientTime * 0.8) * (window.innerHeight * 0.18);
+      mouseX = ambientX;
+      mouseY = ambientY;
+      updateParallax(ambientX, ambientY);
+    }
+
+    curX += (mouseX - curX) * 0.1;
+    curY += (mouseY - curY) * 0.1;
 
     if (spotlight) {
       spotlight.style.transform = `translate3d(${curX}px, ${curY}px, 0) translate(-50%, -50%)`;
@@ -269,33 +350,51 @@ function initMouseAnimations() {
   }
   renderSpotlight();
 
-  // 3D Tilt for Hero Photo Card
+  // 3D Tilt for Hero Photo Card (Mouse & Touch Drag Support)
   if (heroArea && heroWrapper) {
-    heroArea.addEventListener('mousemove', (e) => {
+    function applyCardTilt(clientX, clientY) {
       const rect = heroWrapper.getBoundingClientRect();
       const cardCenterX = rect.left + rect.width / 2;
       const cardCenterY = rect.top + rect.height / 2;
 
-      const rotateY = ((e.clientX - cardCenterX) / (rect.width / 2)) * 14;
-      const rotateX = -((e.clientY - cardCenterY) / (rect.height / 2)) * 14;
+      const rotateY = ((clientX - cardCenterX) / (rect.width / 2)) * 14;
+      const rotateX = -((clientY - cardCenterY) / (rect.height / 2)) * 14;
 
       heroWrapper.style.transform = `perspective(1000px) rotateX(${rotateX.toFixed(2)}deg) rotateY(${rotateY.toFixed(2)}deg) scale3d(1.025, 1.025, 1.025)`;
 
-      // Floating badges depth parallax
       const badges = heroWrapper.querySelectorAll('.floating-badge');
       badges.forEach((b, i) => {
         const factor = i === 0 ? 1.5 : -1.5;
-        b.style.transform = `translate3d(${rotateY * factor}px, ${-rotateX * factor}px, 40px)`;
+        b.style.transform = `translate3d(${rotateY * factor}px, ${-rotateX * factor}px, 35px)`;
       });
-    });
+    }
 
-    heroArea.addEventListener('mouseleave', () => {
+    function resetCardTilt() {
       heroWrapper.style.transform = `perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)`;
       const badges = heroWrapper.querySelectorAll('.floating-badge');
       badges.forEach(b => {
         b.style.transform = '';
       });
-    });
+    }
+
+    // Desktop Mouse Handlers
+    heroArea.addEventListener('mousemove', (e) => applyCardTilt(e.clientX, e.clientY));
+    heroArea.addEventListener('mouseleave', resetCardTilt);
+
+    // Mobile Touch Drag Tilt on Hero Image Card
+    heroArea.addEventListener('touchstart', (e) => {
+      if (e.touches && e.touches.length > 0) {
+        applyCardTilt(e.touches[0].clientX, e.touches[0].clientY);
+      }
+    }, { passive: true });
+
+    heroArea.addEventListener('touchmove', (e) => {
+      if (e.touches && e.touches.length > 0) {
+        applyCardTilt(e.touches[0].clientX, e.touches[0].clientY);
+      }
+    }, { passive: true });
+
+    heroArea.addEventListener('touchend', resetCardTilt, { passive: true });
   }
 }
 
@@ -768,33 +867,35 @@ function loadArtifactModalContent(projKey) {
         </div>
 
         <h3 style="color:var(--accent-cyan); margin-bottom: 8px;">3. Sample Test Case Format Executed</h3>
-        <table style="width:100%; border-collapse:collapse; font-size:0.85rem; margin-top:8px;">
-          <thead>
-            <tr style="background:rgba(255,255,255,0.06); text-align:left;">
-              <th style="padding:8px; border:1px solid var(--border-subtle);">TC ID</th>
-              <th style="padding:8px; border:1px solid var(--border-subtle);">Test Scenario</th>
-              <th style="padding:8px; border:1px solid var(--border-subtle);">Pre-conditions</th>
-              <th style="padding:8px; border:1px solid var(--border-subtle);">Expected Result</th>
-              <th style="padding:8px; border:1px solid var(--border-subtle);">Status</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td style="padding:8px; border:1px solid var(--border-subtle); font-family:var(--font-mono);">TC_MYJ_042</td>
-              <td style="padding:8px; border:1px solid var(--border-subtle);">Verify age filter boundaries (18 to 70)</td>
-              <td style="padding:8px; border:1px solid var(--border-subtle);">User logged in</td>
-              <td style="padding:8px; border:1px solid var(--border-subtle);">Displays only profiles within boundary</td>
-              <td style="padding:8px; border:1px solid var(--border-subtle); color:var(--accent-emerald); font-weight:700;">PASS</td>
-            </tr>
-            <tr>
-              <td style="padding:8px; border:1px solid var(--border-subtle); font-family:var(--font-mono);">TC_MYJ_088</td>
-              <td style="padding:8px; border:1px solid var(--border-subtle);">Validate concurrent chat messaging over WebSockets</td>
-              <td style="padding:8px; border:1px solid var(--border-subtle);">Mutual match established</td>
-              <td style="padding:8px; border:1px solid var(--border-subtle);">Messages sync within &lt;200ms latency</td>
-              <td style="padding:8px; border:1px solid var(--border-subtle); color:var(--accent-emerald); font-weight:700;">PASS</td>
-            </tr>
-          </tbody>
-        </table>
+        <div style="overflow-x:auto; -webkit-overflow-scrolling:touch; width:100%; margin-top:8px; border:1px solid var(--border-subtle); border-radius:8px;">
+          <table style="width:100%; min-width:550px; border-collapse:collapse; font-size:0.85rem;">
+            <thead>
+              <tr style="background:rgba(255,255,255,0.06); text-align:left;">
+                <th style="padding:8px 12px; border-bottom:1px solid var(--border-subtle);">TC ID</th>
+                <th style="padding:8px 12px; border-bottom:1px solid var(--border-subtle);">Test Scenario</th>
+                <th style="padding:8px 12px; border-bottom:1px solid var(--border-subtle);">Pre-conditions</th>
+                <th style="padding:8px 12px; border-bottom:1px solid var(--border-subtle);">Expected Result</th>
+                <th style="padding:8px 12px; border-bottom:1px solid var(--border-subtle);">Status</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td style="padding:8px 12px; border-bottom:1px solid var(--border-subtle); font-family:var(--font-mono);">TC_MYJ_042</td>
+                <td style="padding:8px 12px; border-bottom:1px solid var(--border-subtle);">Verify age filter boundaries (18 to 70)</td>
+                <td style="padding:8px 12px; border-bottom:1px solid var(--border-subtle);">User logged in</td>
+                <td style="padding:8px 12px; border-bottom:1px solid var(--border-subtle);">Displays only profiles within boundary</td>
+                <td style="padding:8px 12px; border-bottom:1px solid var(--border-subtle); color:var(--accent-emerald); font-weight:700;">PASS</td>
+              </tr>
+              <tr>
+                <td style="padding:8px 12px; font-family:var(--font-mono);">TC_MYJ_088</td>
+                <td style="padding:8px 12px;">Validate concurrent chat messaging over WebSockets</td>
+                <td style="padding:8px 12px;">Mutual match established</td>
+                <td style="padding:8px 12px;">Messages sync within &lt;200ms latency</td>
+                <td style="padding:8px 12px; color:var(--accent-emerald); font-weight:700;">PASS</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
       </div>
     `;
   } else {
@@ -859,16 +960,41 @@ function initClipboardAndContact() {
     });
   }
 
-  // Mobile menu button
+  // Mobile menu button with animated icon, sound feedback, and outside-click dismiss
   const mobileBtn = document.getElementById('mobileMenuBtn');
   const navLinks = document.getElementById('navLinks');
   if (mobileBtn && navLinks) {
-    mobileBtn.addEventListener('click', () => {
-      navLinks.classList.toggle('mobile-open');
+    function toggleMobileMenu(forceClose = false) {
+      const isOpen = forceClose ? false : !navLinks.classList.contains('mobile-open');
+      if (isOpen) {
+        navLinks.classList.add('mobile-open');
+        mobileBtn.classList.add('active');
+        mobileBtn.innerHTML = `<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>`;
+        mobileBtn.setAttribute('aria-expanded', 'true');
+      } else {
+        navLinks.classList.remove('mobile-open');
+        mobileBtn.classList.remove('active');
+        mobileBtn.innerHTML = `<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>`;
+        mobileBtn.setAttribute('aria-expanded', 'false');
+      }
+    }
+
+    mobileBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      toggleMobileMenu();
+      playAudioBeep(580, 0.04);
     });
+
     // Close on link click
     navLinks.querySelectorAll('a').forEach(a => {
-      a.addEventListener('click', () => navLinks.classList.remove('mobile-open'));
+      a.addEventListener('click', () => toggleMobileMenu(true));
+    });
+
+    // Close on click outside
+    document.addEventListener('click', (e) => {
+      if (!navLinks.contains(e.target) && !mobileBtn.contains(e.target)) {
+        toggleMobileMenu(true);
+      }
     });
   }
 }
@@ -924,6 +1050,40 @@ function initScrollspy() {
       }
     });
   });
+}
+
+/* ==========================================================================
+   8.1 SCROLL REVEAL & MOBILE STAGGERED ENTRANCE ANIMATIONS
+   ========================================================================== */
+function initScrollAnimations() {
+  const animatedElements = document.querySelectorAll(
+    '.stlc-step-card, .project-card, .skill-card, .metric-item, .terminal-window, .timeline-item, .contact-card, .hero-availability'
+  );
+
+  animatedElements.forEach((el, index) => {
+    el.classList.add('reveal-on-scroll');
+    const delay = (index % 3) * 0.08;
+    el.style.transitionDelay = `${delay}s`;
+  });
+
+  if ('IntersectionObserver' in window) {
+    const observer = new IntersectionObserver((entries, obs) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('revealed');
+          obs.unobserve(entry.target);
+        }
+      });
+    }, {
+      root: null,
+      threshold: 0.08,
+      rootMargin: '0px 0px -25px 0px'
+    });
+
+    animatedElements.forEach(el => observer.observe(el));
+  } else {
+    animatedElements.forEach(el => el.classList.add('revealed'));
+  }
 }
 
 /* ==========================================================================
