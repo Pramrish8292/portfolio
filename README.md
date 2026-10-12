@@ -14,7 +14,7 @@ A modern, high-tech portfolio website built for **Pramrish Prabhasan**, a Qualit
 - **🧪 Interactive Live QA Test Runner Simulator**: Recruiters can trigger automated smoke and regression test suites in real time right in the browser, watching real-time terminal stdout logs, progress bars, and execution metrics.
 - **🛡️ STLC & Defect Lifecycle Visualizer**: 6-stage interactive pipeline covering requirement review, test case matrix design, execution, defect triage (Jira / HP ALM / ClearQuest), UAT sign-off, and live production validation.
 - **💼 Enterprise Projects Showcase**:
-  - **MakeYourJodi (Matrimonial Platform)**: Profile matching, messaging, UAT coordination, live prod smoke tests.
+  - **MakeYourJodi (Matrimonial Platform)**: Profile matching, messaging, UAT coordination, live prod smoke tests. (Live site: [makeyourjodi.com](https://www.makeyourjodi.com))
   - **HIS (Hospital Information System)**: Inpatient admissions, discharge workflows, Postman API collections, and EHR data integrity.
 - **📄 ATS Resume Export**: Full formatted resume with instant print-to-PDF and copy clean ATS text features.
 - **🖱️ Cursor-Driven Parallax**: Smooth glowing cursor spotlight, interactive background constellation with laser connections, and 3D card tilt.
