@@ -966,10 +966,12 @@ function initClipboardAndContact() {
             'Accept': 'application/json'
           },
           body: JSON.stringify({
-            name: name,
-            email: email,
+            "Recruiter Name": name,
+            "Professional Email": email,
+            "Subject / Opportunity": subject,
+            "Message": message,
             _subject: `[QA Portfolio Lead] ${subject} — ${name}`,
-            message: message,
+            _replyto: email,
             _template: 'table',
             _captcha: 'false'
           })
