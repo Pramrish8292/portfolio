@@ -74,7 +74,7 @@ function initCanvas() {
   window.addEventListener('resize', resize);
 
   const mouse = { x: null, y: null, radius: 170, prevX: null, prevY: null };
-  
+
   window.addEventListener('mousemove', (e) => {
     mouse.prevX = mouse.x;
     mouse.prevY = mouse.y;
@@ -410,8 +410,8 @@ function initTypewriter() {
     'Manual & Automation Testing Specialist',
     'Selenium WebDriver & TestNG Engineer',
     'Postman API Testing Strategist',
-    'Healthcare (HIS) & Matrimonial QA',
-    'Agile STLC & UAT Testing'
+    'Healthcare (HIS) & Matrimonial ',
+    'Agile STLC & UAT'
   ];
 
   let roleIdx = 0;
@@ -861,7 +861,7 @@ function loadArtifactModalContent(projKey) {
         <div style="background:rgba(255,255,255,0.03); padding:16px; border-radius:8px; border:1px solid var(--border-subtle); margin-bottom:16px;">
           <ul style="padding-left: 20px; display:flex; flex-direction:column; gap:8px;">
             <li><strong>Jira Workflow:</strong> Open ➔ In Triage ➔ Assigned to Dev ➔ Fix Ready ➔ QA Regression ➔ Closed.</li>
-            <li><strong>Severity S1 (Blocker):</strong> Immediate halt, root-cause analysis with Product Owner & Lead Dev.</li>
+            <li><strong>Severity S1 (Blocker):</strong> Immediate halt, root-cause analysis with Product Owner & Development Team.</li>
             <li><strong>Production Smoke Testing:</strong> Executed post-release checklist across live servers to guarantee 100% stability.</li>
           </ul>
         </div>
@@ -970,7 +970,7 @@ function initClipboardAndContact() {
             "Professional Email": email,
             "Subject / Opportunity": subject,
             "Message": message,
-            _subject: `[QA Portfolio Lead] ${subject} — ${name}`,
+            _subject: `[QA Portfolio Inquiry] ${subject} — ${name}`,
             _replyto: email,
             _template: 'table',
             _captcha: 'false'
@@ -1164,7 +1164,7 @@ function playAudioBeep(freq = 600, duration = 0.05) {
     gain.connect(audioCtx.destination);
     osc.start();
     osc.stop(audioCtx.currentTime + duration);
-  } catch (err) {}
+  } catch (err) { }
 }
 
 function playAudioSuccess() {
@@ -1199,7 +1199,7 @@ PROFESSIONAL EXPERIENCE
 Quality Engineer | July 2026 – Present
 Techostinger India Private Limited (MakeYourJodi - Matrimonial Application)
 - Own manual testing for the MakeYourJodi matrimonial platform, running functional, regression, and exploratory test cycles across core modules such as profile matching and messaging.
-- Lead UAT cycles, validating features against business requirements and securing stakeholder sign-off before release.
+- Coordinate UAT cycles, validating features against business requirements and securing stakeholder sign-off before release.
 - Perform testing and validation on the live/production environment, confirming release stability and catching issues that surface post-deployment.
 - Design and execute test cases from user stories and requirements to catch defects early and protect the end-user experience.
 - Log, triage, and track defects to resolution, working closely with developers and product stakeholders to confirm fixes.
