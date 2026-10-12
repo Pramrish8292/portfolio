@@ -933,11 +933,14 @@ function initClipboardAndContact() {
     });
   });
 
-  // Contact Form
+  // Contact Form - Direct Email Delivery to pramrish.prabhashan@gmail.com
   const form = document.getElementById('contactForm');
   if (form) {
-    form.addEventListener('submit', (e) => {
+    form.addEventListener('submit', async (e) => {
       e.preventDefault();
+      const submitBtn = form.querySelector('button[type="submit"]');
+      const originalBtnHTML = submitBtn.innerHTML;
+
       const name = document.getElementById('formName').value.trim();
       const email = document.getElementById('formEmail').value.trim();
       const subject = document.getElementById('formSubject').value.trim() || 'Inquiry regarding Quality Engineer role';
@@ -948,15 +951,51 @@ function initClipboardAndContact() {
         return;
       }
 
-      // Precompose mailto
-      const mailtoUrl = `mailto:pramrish.prabhashan@gmail.com?subject=${encodeURIComponent(subject + ' - ' + name)}&body=${encodeURIComponent(
-        `Hi Pramrish,\n\n${message}\n\nFrom: ${name} (${email})`
-      )}`;
+      // Show sending spinner state
+      submitBtn.disabled = true;
+      submitBtn.innerHTML = `
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="animation: spinPulse 0.9s linear infinite;"><line x1="12" y1="2" x2="12" y2="6"></line><line x1="12" y1="18" x2="12" y2="22"></line><line x1="4.93" y1="4.93" x2="7.76" y2="7.76"></line><line x1="16.24" y1="16.24" x2="19.07" y2="19.07"></line><line x1="2" y1="12" x2="6" y2="12"></line><line x1="18" y1="12" x2="22" y2="12"></line><line x1="4.93" y1="19.07" x2="7.76" y2="16.24"></line><line x1="16.24" y1="7.76" x2="19.07" y2="4.93"></line></svg>
+        <span>Sending Message...</span>
+      `;
 
-      window.open(mailtoUrl, '_blank');
-      showToast('Opening email client with pre-filled message...');
-      form.reset();
-      playAudioSuccess();
+      try {
+        const response = await fetch('https://formsubmit.co/ajax/pramrish.prabhashan@gmail.com', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json'
+          },
+          body: JSON.stringify({
+            name: name,
+            email: email,
+            _subject: `[QA Portfolio Lead] ${subject} — ${name}`,
+            message: message,
+            _template: 'table',
+            _captcha: 'false'
+          })
+        });
+
+        const data = await response.json();
+
+        if (response.ok || data.success === 'true' || data.success === true) {
+          showToast('Message sent! I will reply to your email shortly.');
+          form.reset();
+          playAudioSuccess();
+        } else {
+          throw new Error(data.message || 'Delivery request failed');
+        }
+      } catch (err) {
+        console.warn('Direct delivery error, falling back to mail client:', err);
+        // Fallback to mailto if user is offline or service has an error
+        const mailtoUrl = `mailto:pramrish.prabhashan@gmail.com?subject=${encodeURIComponent(subject + ' - ' + name)}&body=${encodeURIComponent(
+          `Hi Pramrish,\n\n${message}\n\nFrom: ${name} (${email})`
+        )}`;
+        window.open(mailtoUrl, '_blank');
+        showToast('Opening email client with pre-filled message...');
+      } finally {
+        submitBtn.disabled = false;
+        submitBtn.innerHTML = originalBtnHTML;
+      }
     });
   }
 
