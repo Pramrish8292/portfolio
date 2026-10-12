@@ -1851,7 +1851,54 @@ button {
 }
 
 /* ==========================================================================
-   RESPONSIVE MEDIA QUERIES
+   SCROLL REVEAL & MOBILE ANIMATIONS KEYFRAMES
+   ========================================================================== */
+.reveal-on-scroll {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.65s cubic-bezier(0.16, 1, 0.3, 1), transform 0.65s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+
+.reveal-on-scroll.revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@keyframes mobileHeroFloat {
+  0%, 100% {
+    transform: translateY(0px) scale(1);
+    box-shadow: 0 12px 36px rgba(0, 0, 0, 0.5), 0 0 25px rgba(0, 242, 254, 0.22);
+  }
+  50% {
+    transform: translateY(-8px) scale(1.012);
+    box-shadow: 0 18px 45px rgba(0, 0, 0, 0.6), 0 0 38px rgba(0, 242, 254, 0.4);
+  }
+}
+
+@keyframes floatBadgeMobileTop {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-6px); }
+}
+
+@keyframes floatBadgeMobileBottom {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(6px); }
+}
+
+@keyframes cyberBorderGlow {
+  0%, 100% { border-color: rgba(0, 242, 254, 0.3); }
+  50% { border-color: rgba(0, 242, 254, 0.75); }
+}
+
+/* Touch & tap enhancements for mobile browsers */
+button, a, .contact-chip, .suite-tab, .filter-btn, .stlc-step-card, .skill-card {
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+}
+
+/* ==========================================================================
+   RESPONSIVE MEDIA QUERIES (TABLET & MOBILE)
    ========================================================================== */
 @media (max-width: 1024px) {
   .hero-grid {
@@ -1868,6 +1915,7 @@ button {
 
   .hero-visual {
     order: -1;
+    margin: 0 auto;
   }
 
   .project-card {
@@ -1892,37 +1940,323 @@ button {
 }
 
 @media (max-width: 768px) {
+  html, body {
+    overflow-x: hidden;
+  }
+
+  .container {
+    padding: 0 16px;
+  }
+
+  /* Animated High-Tech Glassmorphic Mobile Menu */
+  .mobile-menu-btn {
+    display: flex;
+    transition: transform var(--transition-fast), border-color var(--transition-fast);
+  }
+
+  .mobile-menu-btn.active {
+    border-color: var(--accent-cyan);
+    color: var(--accent-cyan);
+    box-shadow: 0 0 14px rgba(0, 242, 254, 0.35);
+  }
+
   .nav-links {
-    display: none;
-    position: absolute;
-    top: 100%;
+    position: fixed;
+    top: 68px;
     left: 0;
     width: 100%;
-    background: var(--bg-surface);
-    border-bottom: 1px solid var(--border-subtle);
+    background: rgba(8, 12, 22, 0.96);
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+    border-bottom: 1px solid var(--border-active);
+    box-shadow: 0 20px 45px rgba(0, 0, 0, 0.85), 0 0 25px rgba(0, 242, 254, 0.12);
     flex-direction: column;
-    padding: 20px;
-    gap: 16px;
+    padding: 24px 18px;
+    gap: 10px;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-16px);
+    transition: opacity 0.28s ease, transform 0.28s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.28s;
+    pointer-events: none;
+    z-index: 999;
+    max-height: calc(100vh - 70px);
+    overflow-y: auto;
+  }
+
+  [data-theme="light"] .nav-links {
+    background: rgba(255, 255, 255, 0.98);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
   }
 
   .nav-links.mobile-open {
-    display: flex;
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+    pointer-events: auto;
   }
 
-  .mobile-menu-btn {
+  .nav-link {
     display: flex;
+    align-items: center;
+    padding: 12px 16px;
+    border-radius: var(--radius-sm);
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: var(--text-muted);
+    background: rgba(255, 255, 255, 0.02);
+    width: 100%;
+  }
+
+  .nav-link:hover,
+  .nav-link.active {
+    background: rgba(var(--accent-cyan-rgb), 0.1);
+    color: var(--accent-cyan);
+    padding-left: 20px;
+  }
+
+  .nav-link.active::after {
+    display: none;
+  }
+
+  /* Hero Section Mobile Optimization & Animations */
+  .hero-section {
+    padding: 95px 0 45px;
+    min-height: auto;
+  }
+
+  .hero-visual {
+    order: -1;
+    width: 100%;
+    max-width: 320px;
+    margin: 0 auto 12px;
+  }
+
+  .hero-image-wrapper {
+    max-width: 290px;
+    margin: 0 auto;
+    padding: 10px;
+    animation: mobileHeroFloat 5.5s ease-in-out infinite;
+  }
+
+  .hero-name {
+    font-size: clamp(2.1rem, 7.8vw, 3rem);
+    margin-bottom: 12px;
+  }
+
+  .hero-role-wrapper {
+    font-size: 1.18rem;
+    min-height: 2rem;
+    margin-bottom: 18px;
+  }
+
+  .hero-summary {
+    font-size: 0.98rem;
+    line-height: 1.65;
+    margin-bottom: 28px;
+  }
+
+  /* Floating Badges Safe Mobile Positioning with Floating Pulse */
+  .floating-badge {
+    position: absolute;
+    padding: 8px 12px;
+    gap: 8px;
+    box-shadow: 0 8px 22px rgba(0, 0, 0, 0.55), 0 0 16px rgba(0, 242, 254, 0.22);
+    z-index: 3;
+    max-width: 210px;
+  }
+
+  .badge-top-right {
+    top: -12px;
+    right: -8px;
+    animation: floatBadgeMobileTop 4.8s ease-in-out infinite;
+  }
+
+  .badge-bottom-left {
+    bottom: -12px;
+    left: -8px;
+    animation: floatBadgeMobileBottom 4.8s ease-in-out infinite 2.2s;
+  }
+
+  .badge-icon {
+    width: 30px;
+    height: 30px;
+    font-size: 0.95rem;
+    flex-shrink: 0;
+  }
+
+  .badge-text h4 {
+    font-size: 0.8rem;
+    line-height: 1.2;
+  }
+
+  .badge-text p {
+    font-size: 0.68rem;
+  }
+
+  /* Metrics Bar 2x2 on Mobile */
+  .metrics-section {
+    padding: 20px 0 50px;
   }
 
   .metrics-bar {
     grid-template-columns: 1fr 1fr;
-    gap: 16px;
-    padding: 20px;
+    gap: 14px;
+    padding: 18px 14px;
+  }
+
+  .metric-item:nth-child(1)::after,
+  .metric-item:nth-child(3)::after {
+    display: none;
   }
 
   .metric-value {
-    font-size: 1.8rem;
+    font-size: 1.85rem;
   }
 
+  .metric-label {
+    font-size: 0.8rem;
+  }
+
+  /* QA Simulator Mobile UI */
+  .simulator-section {
+    padding: 60px 0;
+  }
+
+  .suite-selector-bar {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 12px;
+    padding: 12px 14px;
+  }
+
+  .suite-tabs {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 6px;
+  }
+
+  .suite-tab {
+    width: 100%;
+    text-align: center;
+    padding: 10px 12px;
+    font-size: 0.82rem;
+  }
+
+  .runner-actions {
+    width: 100%;
+  }
+
+  .runner-actions .btn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .progress-container {
+    padding: 10px 14px;
+    font-size: 0.76rem;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  .terminal-body {
+    padding: 16px 12px;
+    font-size: 0.78rem;
+    line-height: 1.6;
+    min-height: 230px;
+    max-height: 300px;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .log-line {
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+
+  .test-summary-footer {
+    grid-template-columns: 1fr 1fr;
+    padding: 14px 12px;
+    gap: 12px;
+  }
+
+  /* STLC & Projects Mobile Styles */
+  .stlc-section,
+  .projects-section,
+  .skills-section,
+  .contact-section {
+    padding: 60px 0;
+  }
+
+  .section-title {
+    font-size: clamp(1.75rem, 6vw, 2.3rem);
+  }
+
+  .section-subtitle {
+    margin-bottom: 34px;
+    font-size: 0.95rem;
+  }
+
+  .stlc-flow-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .stlc-step-card {
+    padding: 22px 18px;
+  }
+
+  .project-content {
+    padding: 24px 18px;
+  }
+
+  .project-title {
+    font-size: 1.5rem;
+  }
+
+  .project-impact-metrics {
+    grid-template-columns: 1fr;
+    gap: 10px;
+    padding: 14px;
+  }
+
+  .project-actions {
+    flex-direction: column;
+  }
+
+  .project-actions .btn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  /* Skills Filter Tabs Horizontal Scroll on Mobile */
+  .skills-filter-tabs {
+    justify-content: flex-start;
+    overflow-x: auto;
+    flex-wrap: nowrap;
+    padding-bottom: 8px;
+    -webkit-overflow-scrolling: touch;
+    scroll-snap-type: x mandatory;
+    gap: 8px;
+    max-width: 100%;
+  }
+
+  .skills-filter-tabs::-webkit-scrollbar {
+    display: none;
+  }
+
+  .filter-btn {
+    flex-shrink: 0;
+    scroll-snap-align: start;
+    font-size: 0.82rem;
+    padding: 8px 16px;
+  }
+
+  .skills-grid {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+
+  /* Experience Timeline */
   .timeline-wrapper::before {
     left: 15px;
   }
@@ -1935,9 +2269,138 @@ button {
     left: 6px;
   }
 
+  /* Contact Cards & Form */
+  .contact-info-cards {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .contact-card {
+    padding: 18px;
+  }
+
+  /* Modals on Mobile */
+  .modal-overlay {
+    padding: 10px;
+  }
+
+  .modal-container {
+    max-height: 94vh;
+    border-radius: var(--radius-md);
+  }
+
+  .modal-header {
+    padding: 14px 16px;
+  }
+
+  .modal-title {
+    font-size: 1rem;
+  }
+
+  .modal-body {
+    padding: 16px 12px;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .resume-paper {
+    padding: 18px 12px;
+    font-size: 0.84rem;
+  }
+
+  .resume-paper h2 {
+    font-size: 1.45rem;
+  }
+
+  .resume-contact-row {
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .modal-footer {
+    flex-direction: column-reverse;
+    padding: 12px 16px;
+    gap: 8px;
+  }
+
+  .modal-footer .btn {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+/* Extra Small Phones (< 480px) */
+@media (max-width: 480px) {
+  .hero-name {
+    font-size: 2.15rem;
+  }
+
+  .hero-cta-group {
+    flex-direction: column;
+    width: 100%;
+    gap: 12px;
+  }
+
+  .hero-cta-group .btn {
+    width: 100%;
+    justify-content: center;
+    padding: 14px 20px;
+  }
+
+  .hero-contact-chips {
+    flex-direction: column;
+    width: 100%;
+    gap: 8px;
+  }
+
+  .contact-chip {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .hero-visual {
+    max-width: 275px;
+  }
+
+  .hero-image-wrapper {
+    max-width: 255px;
+  }
+
   .floating-badge {
-    position: static;
-    margin-top: 16px;
+    max-width: 175px;
+    padding: 6px 10px;
+  }
+
+  .badge-top-right {
+    top: -8px;
+    right: -4px;
+  }
+
+  .badge-bottom-left {
+    bottom: -8px;
+    left: -4px;
+  }
+
+  .badge-text h4 {
+    font-size: 0.74rem;
+  }
+
+  .badge-text p {
+    font-size: 0.62rem;
+  }
+
+  .metrics-bar {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .metric-item:not(:last-child)::after {
+    display: none;
+  }
+
+  .test-summary-footer {
+    grid-template-columns: 1fr;
+    gap: 10px;
   }
 }
 
