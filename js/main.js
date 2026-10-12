@@ -410,8 +410,8 @@ function initTypewriter() {
     'Manual & Automation Testing Specialist',
     'Selenium WebDriver & TestNG Engineer',
     'Postman API Testing Strategist',
-    'Healthcare (HIS) & Matrimonial QA Lead',
-    'Agile STLC & UAT Sign-off Coordinator'
+    'Healthcare (HIS) & Matrimonial QA',
+    'Agile STLC & UAT Testing'
   ];
 
   let roleIdx = 0;
