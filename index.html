@@ -1,0 +1,1271 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Pramrish Prabhasan - Quality Engineer with 2+ years experience testing web applications across Healthcare and Matrimonial domains. Expert in Manual & Automation Testing, Selenium WebDriver, TestNG, Jenkins, Postman, and Jira.">
+  <meta name="keywords" content="Pramrish Prabhasan, Quality Engineer, SDET, QA Engineer, Selenium WebDriver, TestNG, Postman API, Jira, STLC, Automation Testing, Bengaluru">
+  <meta name="author" content="Pramrish Prabhasan">
+  
+  <title>Pramrish Prabhasan | Quality Engineer & SDET Portfolio</title>
+  
+  <!-- Favicon SVG -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='25' fill='%2300f2fe'/><text x='50' y='65' font-family='sans-serif' font-size='50' font-weight='900' text-anchor='middle' fill='%230a0d14'>PP</text></svg>">
+  
+  <!-- CSS Stylesheet -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- Background Canvas and Ambient Light Blobs -->
+  <canvas id="bgCanvas"></canvas>
+  <div class="cursor-spotlight" id="cursorSpotlight"></div>
+  <div class="bg-glow-orb orb-1" id="orb1"></div>
+  <div class="bg-glow-orb orb-2" id="orb2"></div>
+  <div class="bg-glow-orb orb-3" id="orb3"></div>
+
+  <!-- ==========================================================================
+       HEADER & NAVIGATION BAR
+       ========================================================================== -->
+  <header class="navbar" id="navbar">
+    <div class="container nav-container">
+      <a href="#hero" class="nav-logo" aria-label="Pramrish Prabhasan Portfolio Home">
+        <span class="logo-badge">PP</span>
+        <span>Pramrish<span style="color:var(--accent-cyan);">.QA</span></span>
+      </a>
+
+      <nav>
+        <ul class="nav-links" id="navLinks">
+          <li><a href="#hero" class="nav-link active">About</a></li>
+          <li><a href="#simulator" class="nav-link">QA Simulator</a></li>
+          <li><a href="#workflow" class="nav-link">STLC Workflow</a></li>
+          <li><a href="#projects" class="nav-link">Projects</a></li>
+          <li><a href="#skills" class="nav-link">Skills</a></li>
+          <li><a href="#experience" class="nav-link">Experience</a></li>
+          <li><a href="#contact" class="nav-link">Contact</a></li>
+        </ul>
+      </nav>
+
+      <div class="nav-actions">
+        <!-- Audio FX Toggle -->
+        <button id="audioToggleBtn" class="icon-btn" aria-label="Toggle Sound Effects" title="Enable UI Sound FX">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><line x1="23" y1="9" x2="17" y2="15"></line><line x1="17" y1="9" x2="23" y2="15"></line></svg>
+        </button>
+
+        <!-- Theme Toggle (Dark / Light) -->
+        <button id="themeToggleBtn" class="icon-btn" aria-label="Switch Theme" title="Switch Theme">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+        </button>
+
+        <!-- Resume Modal Trigger -->
+        <button class="btn btn-outline btn-sm open-resume-btn" id="navResumeBtn">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
+          <span>Resume</span>
+        </button>
+
+        <!-- Mobile Menu Hamburger -->
+        <button id="mobileMenuBtn" class="icon-btn mobile-menu-btn" aria-label="Toggle Navigation Menu">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ==========================================================================
+       HERO SECTION
+       ========================================================================== */ -->
+  <section class="hero-section" id="hero">
+    <div class="container hero-grid">
+      <div class="hero-content">
+        <div class="hero-availability">
+          <span class="pulse-dot"></span>
+          <span>Available for Quality Engineer / SDET Opportunities</span>
+        </div>
+
+        <h1 class="hero-name">
+          Pramrish <span class="gradient-text">Prabhasan</span>
+        </h1>
+
+        <div class="hero-role-wrapper">
+          <span id="typingRole">Quality Engineer (QA / SDET)</span>
+          <span class="cursor-blink"></span>
+        </div>
+
+        <p class="hero-summary">
+          Quality Engineer with <strong>2+ years</strong> specializing in testing complex web applications across 
+          <strong>Healthcare (HIS)</strong> and <strong>Matrimonial</strong> domains. Proven track record covering the 
+          complete STLC—from test planning and Postman API assertions through UAT stakeholder sign-off and zero-defect 
+          live production validation. Automation-capable with <strong>Selenium WebDriver</strong>, <strong>TestNG</strong>, and <strong>Jenkins CI/CD</strong>.
+        </p>
+
+        <div class="hero-cta-group">
+          <a href="#simulator" class="btn btn-primary">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+            <span>Run QA Test Simulator</span>
+          </a>
+          <button class="btn btn-outline open-resume-btn">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+            <span>View Resume & Credentials</span>
+          </button>
+        </div>
+
+        <div class="hero-contact-chips">
+          <a href="tel:8292694318" class="contact-chip" title="Call Pramrish">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+            <span>8292694318</span>
+          </a>
+          <a href="mailto:pramrish.prabhashan@gmail.com" class="contact-chip" title="Email Pramrish">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+            <span>pramrish.prabhashan@gmail.com</span>
+          </a>
+          <a href="https://linkedin.com/in/pramrish-prabhasan" target="_blank" rel="noopener noreferrer" class="contact-chip" title="LinkedIn Profile">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+            <span>linkedin.com/in/pramrish-prabhasan</span>
+          </a>
+          <span class="contact-chip">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+            <span>Bengaluru, India</span>
+          </span>
+        </div>
+      </div>
+
+      <!-- Hero Visual Card -->
+      <div class="hero-visual" id="heroVisualArea">
+        <div class="hero-image-wrapper" id="heroImageWrapper">
+          <div class="hero-image-inner">
+            <img src="./assets/images/pramrish-photo.jpg" alt="Pramrish Prabhasan - Quality Engineer" class="hero-image" loading="eager">
+          </div>
+
+          <!-- Floating Badges -->
+          <div class="floating-badge badge-top-right">
+            <div class="badge-icon cyan">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            </div>
+            <div class="badge-text">
+              <h4>Full STLC Lifecycle</h4>
+              <p>Planning to Live Prod Validation</p>
+            </div>
+          </div>
+
+          <div class="floating-badge badge-bottom-left">
+            <div class="badge-icon emerald">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+            </div>
+            <div class="badge-text">
+              <h4>Zero Critical Leakage</h4>
+              <p>Healthcare & Matrimonial</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       METRICS COUNTER SECTION
+       ========================================================================== -->
+  <section class="metrics-section">
+    <div class="container">
+      <div class="metrics-bar">
+        <div class="metric-item">
+          <span class="metric-value">2+</span>
+          <span class="metric-label">Years STLC Experience</span>
+        </div>
+        <div class="metric-item">
+          <span class="metric-value">100+</span>
+          <span class="metric-label">Releases & UAT Cycles</span>
+        </div>
+        <div class="metric-item">
+          <span class="metric-value">800+</span>
+          <span class="metric-label">Test Cases Designed</span>
+        </div>
+        <div class="metric-item">
+          <span class="metric-value">100%</span>
+          <span class="metric-label">Live Production Stability</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       INTERACTIVE QA AUTOMATION SIMULATOR
+       ========================================================================== -->
+  <section class="simulator-section" id="simulator">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Interactive Feature</span>
+        <h2 class="section-title">Live QA Test Runner Simulator</h2>
+        <p class="section-subtitle">
+          Experience how I structure, trigger, and validate test execution suites across web workflows, 
+          REST APIs, and Jenkins CI/CD automation pipelines in real time.
+        </p>
+      </div>
+
+      <div class="terminal-window">
+        <!-- Terminal Header -->
+        <div class="terminal-header">
+          <div class="terminal-controls">
+            <span class="control-circle circle-red"></span>
+            <span class="control-circle circle-yellow"></span>
+            <span class="control-circle circle-green"></span>
+          </div>
+          <div class="terminal-title">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="4 17 10 11 4 5"></polyline><line x1="12" y1="19" x2="20" y2="19"></line></svg>
+            <span>qa-runner@pramrish-workstation: ~/test-automation-suite</span>
+          </div>
+          <div class="terminal-actions">
+            <button class="btn btn-outline btn-sm" id="viewTestCodeBtn" title="Inspect Automation Code Snippet">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg>
+              <span>Inspect Code</span>
+            </button>
+            <button class="btn btn-outline btn-sm" id="clearTerminalBtn" title="Clear Console">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18"></path><path d="M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6"></path></svg>
+              <span>Clear</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Suite Selector Bar -->
+        <div class="suite-selector-bar">
+          <div class="suite-tabs">
+            <button class="suite-tab active" data-suite="matrimonial">
+              MakeYourJodi Smoke (Selenium + TestNG)
+            </button>
+            <button class="suite-tab" data-suite="healthcare">
+              HIS Healthcare APIs (Postman + REST)
+            </button>
+            <button class="suite-tab" data-suite="crossbrowser">
+              Cross-Browser & Jenkins CI
+            </button>
+          </div>
+
+          <div class="runner-actions">
+            <button class="btn btn-primary btn-sm" id="runTestBtn">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+              <span>▶ Run Test Suite</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Real-time Progress Bar -->
+        <div class="progress-container">
+          <span id="progressText">Ready to execute</span>
+          <div class="progress-track">
+            <div class="progress-fill" id="testProgressBar"></div>
+          </div>
+        </div>
+
+        <!-- Terminal Output Body -->
+        <div class="terminal-body" id="terminalBody">
+          <!-- Populated by JavaScript -->
+        </div>
+
+        <!-- Report Summary Footer -->
+        <div class="test-summary-footer">
+          <div class="summary-card">
+            <span>TOTAL TESTS</span>
+            <span class="val-cyan" id="sumTotal">8</span>
+          </div>
+          <div class="summary-card">
+            <span>PASSED</span>
+            <span class="val-pass" id="sumPassed">0</span>
+          </div>
+          <div class="summary-card">
+            <span>FAILED / BLOCKED</span>
+            <span class="val-fail" id="sumFailed">0</span>
+          </div>
+          <div class="summary-card">
+            <span>EXECUTION TIME</span>
+            <span class="val-time" id="sumTime">0.00s</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       STLC & DEFECT LIFECYCLE WORKFLOW
+       ========================================================================== -->
+  <section class="stlc-section" id="workflow">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Quality Methodology</span>
+        <h2 class="section-title">End-to-End STLC & Defect Lifecycle</h2>
+        <p class="section-subtitle">
+          How I partner with Agile developers, Business Analysts, and Product Owners to catch defects early, 
+          eliminate downstream rework, and guarantee rock-solid releases.
+        </p>
+      </div>
+
+      <div class="stlc-flow-grid">
+        <!-- Step 1 -->
+        <div class="stlc-step-card">
+          <div class="step-card-header">
+            <span class="step-number">PHASE 01</span>
+            <div class="step-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line></svg>
+            </div>
+          </div>
+          <h3>Requirement & Specification Review</h3>
+          <p>
+            Scrutinize user stories and technical specs in sprint planning to flag ambiguities, missing edge cases, 
+            and logic gaps before developers write code, saving crucial engineering cycles.
+          </p>
+          <div class="step-tools">
+            <span class="step-tool-chip">Agile / Scrum</span>
+            <span class="step-tool-chip">Sprint Planning</span>
+            <span class="step-tool-chip">Jira Epics</span>
+          </div>
+        </div>
+
+        <!-- Step 2 -->
+        <div class="stlc-step-card">
+          <div class="step-card-header">
+            <span class="step-number">PHASE 02</span>
+            <div class="step-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 2 7 12 12 22 7 12 2"></polygon><polyline points="2 17 12 22 22 17"></polyline><polyline points="2 12 12 17 22 12"></polyline></svg>
+            </div>
+          </div>
+          <h3>Test Scenario & Case Architecture</h3>
+          <p>
+            Design comprehensive test cases covering positive paths, boundary value analysis (BVA), equivalence partitioning, 
+            and negative flows. Prepare isolated test data configurations for high repeatability.
+          </p>
+          <div class="step-tools">
+            <span class="step-tool-chip">HP ALM</span>
+            <span class="step-tool-chip">Test Matrix</span>
+            <span class="step-tool-chip">Data Sets</span>
+          </div>
+        </div>
+
+        <!-- Step 3 -->
+        <div class="stlc-step-card">
+          <div class="step-card-header">
+            <span class="step-number">PHASE 03</span>
+            <div class="step-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+            </div>
+          </div>
+          <h3>Execution & Exploratory Sessions</h3>
+          <p>
+            Execute rigorous Functional, Sanity, Smoke, Integration, and Exploratory test cycles. Surface hidden edge cases, 
+            session timeouts, and UX bottlenecks that automated scripts often miss.
+          </p>
+          <div class="step-tools">
+            <span class="step-tool-chip">Manual Testing</span>
+            <span class="step-tool-chip">Postman API</span>
+            <span class="step-tool-chip">Exploratory</span>
+          </div>
+        </div>
+
+        <!-- Step 4 -->
+        <div class="stlc-step-card">
+          <div class="step-card-header">
+            <span class="step-number">PHASE 04</span>
+            <div class="step-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>
+            </div>
+          </div>
+          <h3>Defect Triage & Resolution Tracking</h3>
+          <p>
+            Log highly detailed defect reports with precise steps-to-reproduce, payloads, logs, and severity ratings. 
+            Partner closely with developers on root-cause analysis (RCA) and re-test fixes thoroughly.
+          </p>
+          <div class="step-tools">
+            <span class="step-tool-chip">Jira</span>
+            <span class="step-tool-chip">ClearQuest</span>
+            <span class="step-tool-chip">Bug Triaging</span>
+          </div>
+        </div>
+
+        <!-- Step 5 -->
+        <div class="stlc-step-card">
+          <div class="step-card-header">
+            <span class="step-number">PHASE 05</span>
+            <div class="step-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+            </div>
+          </div>
+          <h3>UAT Coordination & Sign-Off</h3>
+          <p>
+            Lead User Acceptance Testing cycles, walking Product Managers, Business Analysts, and clinical/domain stakeholders 
+            through workflows to secure formal release sign-off without friction.
+          </p>
+          <div class="step-tools">
+            <span class="step-tool-chip">UAT Sign-off</span>
+            <span class="step-tool-chip">Stakeholder Demo</span>
+            <span class="step-tool-chip">Acceptance Criteria</span>
+          </div>
+        </div>
+
+        <!-- Step 6 -->
+        <div class="stlc-step-card">
+          <div class="step-card-header">
+            <span class="step-number">PHASE 06</span>
+            <div class="step-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+            </div>
+          </div>
+          <h3>Live Production Support & Smoke Testing</h3>
+          <p>
+            Perform immediate post-deployment sanity validations on live production servers, monitoring real-time user journeys 
+            and ensuring uninterrupted platform reliability after every build.
+          </p>
+          <div class="step-tools">
+            <span class="step-tool-chip">Production Smoke</span>
+            <span class="step-tool-chip">Live Monitoring</span>
+            <span class="step-tool-chip">Zero Regression</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       FEATURED PROJECTS SHOWCASE
+       ========================================================================== -->
+  <section class="projects-section" id="projects">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Tested Applications</span>
+        <h2 class="section-title">Enterprise Domain Projects</h2>
+        <p class="section-subtitle">
+          Real-world web platforms rigorously validated from inception through continuous live deployment.
+        </p>
+      </div>
+
+      <div class="projects-grid">
+        <!-- Project 1: MakeYourJodi -->
+        <div class="project-card">
+          <div class="project-image-box">
+            <img src="./assets/images/makeyourjodi.jpg" alt="MakeYourJodi Matrimonial Web App" class="project-image" loading="lazy">
+            <div class="project-badge-overlay">
+              <span class="domain-badge badge-matrimonial">Matrimonial Platform</span>
+              <span class="domain-badge badge-matrimonial" style="background:rgba(0,242,254,0.2);color:#00f2fe;border-color:rgba(0,242,254,0.4);">Live Production QA</span>
+            </div>
+          </div>
+
+          <div class="project-content">
+            <div>
+              <div class="project-company">Techostinger India Private Limited &bull; July 2026 – Present</div>
+              <h3 class="project-title">MakeYourJodi (Matrimonial Application)</h3>
+              <p class="project-desc">
+                High-scale web matchmaking platform connecting hundreds of thousands of users. Owned manual testing 
+                and QA validation across core modules including profile matching algorithms, real-time messaging, photo uploads, 
+                and premium subscription checkout.
+              </p>
+
+              <div class="project-impact-metrics">
+                <div class="impact-metric">
+                  <span>99.9%</span>
+                  <span>Release Stability</span>
+                </div>
+                <div class="impact-metric">
+                  <span>450+</span>
+                  <span>Test Cases Authored</span>
+                </div>
+                <div class="impact-metric">
+                  <span>0</span>
+                  <span>Post-Deploy Blockers</span>
+                </div>
+              </div>
+
+              <ul class="project-modules-list">
+                <li>
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                  <span><strong>UAT Leadership:</strong> Coordinated end-to-end acceptance cycles with business stakeholders to secure approvals prior to sprint releases.</span>
+                </li>
+                <li>
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                  <span><strong>Live Prod Smoke Testing:</strong> Validated stability and live features post-deployment, actively catching issues before end-users encountered them.</span>
+                </li>
+                <li>
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                  <span><strong>Cross-browser & Mobile:</strong> Executed responsive design and browser parity testing across Chrome, Firefox, Safari, and Edge.</span>
+                </li>
+              </ul>
+
+              <div class="project-tags">
+                <span class="project-tag">Manual Testing</span>
+                <span class="project-tag">Functional & Regression</span>
+                <span class="project-tag">UAT Sign-off</span>
+                <span class="project-tag">Jira</span>
+                <span class="project-tag">Live Prod Support</span>
+                <span class="project-tag">Exploratory Testing</span>
+              </div>
+            </div>
+
+            <div class="project-actions">
+              <button class="btn btn-primary btn-sm open-artifacts-btn" data-project="makeyourjodi">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line></svg>
+                <span>Inspect QA Deliverables</span>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 2: Hospital Information System -->
+        <div class="project-card">
+          <div class="project-image-box">
+            <img src="./assets/images/his-system.jpg" alt="HIS Hospital Information System" class="project-image" loading="lazy">
+            <div class="project-badge-overlay">
+              <span class="domain-badge badge-healthcare">Healthcare Enterprise</span>
+              <span class="domain-badge badge-healthcare" style="background:rgba(16,185,129,0.2);color:#10b981;border-color:rgba(16,185,129,0.4);">Mission Critical</span>
+            </div>
+          </div>
+
+          <div class="project-content">
+            <div>
+              <div class="project-company">AU Technology Consulting &bull; Dec 2023 – Feb 2026</div>
+              <h3 class="project-title">HIS (Hospital Information System)</h3>
+              <p class="project-desc">
+                Mission-critical enterprise healthcare web application serving clinical staff, nurses, and administrative heads. 
+                Validated core hospital modules — patient registration, inpatient admissions, bed discharge/transfer, EHR data flows, 
+                and complex billing reporting workflows.
+              </p>
+
+              <div class="project-impact-metrics">
+                <div class="impact-metric">
+                  <span>80+</span>
+                  <span>Postman API Tests</span>
+                </div>
+                <div class="impact-metric">
+                  <span>100%</span>
+                  <span>Data Integrity Check</span>
+                </div>
+                <div class="impact-metric">
+                  <span>3 Tools</span>
+                  <span>Jira, ALM, ClearQuest</span>
+                </div>
+              </div>
+
+              <ul class="project-modules-list">
+                <li>
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                  <span><strong>Postman API Testing:</strong> Authored and maintained Postman collections to validate JSON payload schemas, headers, status codes, and latency under load.</span>
+                </li>
+                <li>
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                  <span><strong>Zero Data-Leakage:</strong> Validated complex inpatient workflows to guarantee complete patient record integrity across transfers and lab orders.</span>
+                </li>
+                <li>
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                  <span><strong>Knowledge Sharing:</strong> Led team feature walkthroughs and testing sessions to accelerate cross-functional adoption of new clinical features.</span>
+                </li>
+              </ul>
+
+              <div class="project-tags">
+                <span class="project-tag">API Testing (Postman)</span>
+                <span class="project-tag">Healthcare Compliance</span>
+                <span class="project-tag">HP ALM</span>
+                <span class="project-tag">IBM ClearQuest</span>
+                <span class="project-tag">Jira</span>
+                <span class="project-tag">Regression Testing</span>
+              </div>
+            </div>
+
+            <div class="project-actions">
+              <button class="btn btn-emerald btn-sm open-artifacts-btn" data-project="his">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line></svg>
+                <span>Inspect QA Deliverables</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       TECHNICAL SKILLS MATRIX
+       ========================================================================== -->
+  <section class="skills-section" id="skills">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Core Competencies</span>
+        <h2 class="section-title">Technical Skills & Expertise</h2>
+        <p class="section-subtitle">
+          Curated skillset spanning test automation, API validation, defect triage, CI/CD, and agile engineering practices.
+        </p>
+      </div>
+
+      <!-- Filter Tabs -->
+      <div class="skills-filter-tabs">
+        <button class="filter-btn active" data-filter="all">All Skills</button>
+        <button class="filter-btn" data-filter="testing">Testing Types</button>
+        <button class="filter-btn" data-filter="automation">Automation & CI/CD</button>
+        <button class="filter-btn" data-filter="management">Test Management</button>
+        <button class="filter-btn" data-filter="tools">Languages & Tools</button>
+      </div>
+
+      <!-- Skills Cards Grid -->
+      <div class="skills-grid">
+        <!-- 1. Manual & Functional Testing -->
+        <div class="skill-card" data-category="testing">
+          <div>
+            <div class="skill-card-top">
+              <div class="skill-icon-wrapper">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 11l3 3L22 4"></path><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"></path></svg>
+              </div>
+              <span class="skill-category-badge">TESTING TYPE</span>
+            </div>
+            <h4>Manual & Functional Testing</h4>
+            <p class="skill-desc">Expert in Functional, Smoke, Sanity, Integration, System, and Exploratory testing across complex user journeys.</p>
+          </div>
+          <div class="skill-bar-wrap">
+            <div class="skill-bar-labels">
+              <span>Proficiency</span>
+              <span>Advanced (98%)</span>
+            </div>
+            <div class="skill-progress-track">
+              <div class="skill-progress-fill" style="width: 98%;"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 2. Selenium WebDriver -->
+        <div class="skill-card" data-category="automation">
+          <div>
+            <div class="skill-card-top">
+              <div class="skill-icon-wrapper">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polygon points="10 8 16 12 10 16 10 8"></polygon></svg>
+              </div>
+              <span class="skill-category-badge">AUTOMATION</span>
+            </div>
+            <h4>Selenium WebDriver</h4>
+            <p class="skill-desc">Web automation framework building using Java, Page Object Model (POM), dynamic explicit waits, and locator strategies.</p>
+          </div>
+          <div class="skill-bar-wrap">
+            <div class="skill-bar-labels">
+              <span>Proficiency</span>
+              <span>Proficient (88%)</span>
+            </div>
+            <div class="skill-progress-track">
+              <div class="skill-progress-fill" style="width: 88%;"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 3. TestNG & Maven -->
+        <div class="skill-card" data-category="automation">
+          <div>
+            <div class="skill-card-top">
+              <div class="skill-icon-wrapper">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="2.18" ry="2.18"></rect><line x1="7" y1="2" x2="7" y2="22"></line><line x1="17" y1="2" x2="17" y2="22"></line><line x1="2" y1="12" x2="22" y2="12"></line><line x1="2" y1="7" x2="7" y2="7"></line><line x1="2" y1="17" x2="7" y2="17"></line><line x1="17" y1="17" x2="22" y2="17"></line><line x1="17" y1="7" x2="22" y2="7"></line></svg>
+              </div>
+              <span class="skill-category-badge">FRAMEWORK</span>
+            </div>
+            <h4>TestNG & Maven</h4>
+            <p class="skill-desc">Test suite structuring, priority execution, grouping, data-providers, parallel execution, and Maven dependency management.</p>
+          </div>
+          <div class="skill-bar-wrap">
+            <div class="skill-bar-labels">
+              <span>Proficiency</span>
+              <span>Proficient (86%)</span>
+            </div>
+            <div class="skill-progress-track">
+              <div class="skill-progress-fill" style="width: 86%;"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 4. Postman API Testing -->
+        <div class="skill-card" data-category="testing tools">
+          <div>
+            <div class="skill-card-top">
+              <div class="skill-icon-wrapper">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
+              </div>
+              <span class="skill-category-badge">API TESTING</span>
+            </div>
+            <h4>Postman & REST API Testing</h4>
+            <p class="skill-desc">Authoring comprehensive API test collections, JSON assertions, token authentication headers, and response payload validation.</p>
+          </div>
+          <div class="skill-bar-wrap">
+            <div class="skill-bar-labels">
+              <span>Proficiency</span>
+              <span>Advanced (92%)</span>
+            </div>
+            <div class="skill-progress-track">
+              <div class="skill-progress-fill" style="width: 92%;"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 5. Jira & Defect Management -->
+        <div class="skill-card" data-category="management">
+          <div>
+            <div class="skill-card-top">
+              <div class="skill-icon-wrapper">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>
+              </div>
+              <span class="skill-category-badge">MANAGEMENT</span>
+            </div>
+            <h4>Jira & Agile Sprint Boards</h4>
+            <p class="skill-desc">Real-time sprint defect tracking, severity triage, root-cause tagging, user story grooming, and burndown chart tracking.</p>
+          </div>
+          <div class="skill-bar-wrap">
+            <div class="skill-bar-labels">
+              <span>Proficiency</span>
+              <span>Advanced (96%)</span>
+            </div>
+            <div class="skill-progress-track">
+              <div class="skill-progress-fill" style="width: 96%;"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 6. HP ALM & ClearQuest -->
+        <div class="skill-card" data-category="management">
+          <div>
+            <div class="skill-card-top">
+              <div class="skill-icon-wrapper">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg>
+              </div>
+              <span class="skill-category-badge">ENTERPRISE ALM</span>
+            </div>
+            <h4>HP ALM & ClearQuest</h4>
+            <p class="skill-desc">Enterprise test plan management, traceability matrix maintenance, and defect lifecycle control in regulated healthcare environments.</p>
+          </div>
+          <div class="skill-bar-wrap">
+            <div class="skill-bar-labels">
+              <span>Proficiency</span>
+              <span>Experienced (90%)</span>
+            </div>
+            <div class="skill-progress-track">
+              <div class="skill-progress-fill" style="width: 90%;"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 7. Jenkins CI/CD -->
+        <div class="skill-card" data-category="automation">
+          <div>
+            <div class="skill-card-top">
+              <div class="skill-icon-wrapper">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg>
+              </div>
+              <span class="skill-category-badge">DEVOPS & CI</span>
+            </div>
+            <h4>Jenkins CI/CD Integration</h4>
+            <p class="skill-desc">Automated build trigger execution, parameterized test builds, scheduled regression jobs, and ExtentReports artifact publishing.</p>
+          </div>
+          <div class="skill-bar-wrap">
+            <div class="skill-bar-labels">
+              <span>Proficiency</span>
+              <span>Proficient (82%)</span>
+            </div>
+            <div class="skill-progress-track">
+              <div class="skill-progress-fill" style="width: 82%;"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 8. Java Programming -->
+        <div class="skill-card" data-category="tools">
+          <div>
+            <div class="skill-card-top">
+              <div class="skill-icon-wrapper">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 18l6-6-6-6"></path><path d="M8 6l-6 6 6 6"></path></svg>
+              </div>
+              <span class="skill-category-badge">LANGUAGE</span>
+            </div>
+            <h4>Core Java</h4>
+            <p class="skill-desc">Object-oriented programming (OOP), collections framework, exception handling, string manipulation, and clean test code design.</p>
+          </div>
+          <div class="skill-bar-wrap">
+            <div class="skill-bar-labels">
+              <span>Proficiency</span>
+              <span>Proficient (85%)</span>
+            </div>
+            <div class="skill-progress-track">
+              <div class="skill-progress-fill" style="width: 85%;"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 9. UAT & Production Support -->
+        <div class="skill-card" data-category="testing management">
+          <div>
+            <div class="skill-card-top">
+              <div class="skill-icon-wrapper">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+              </div>
+              <span class="skill-category-badge">PRODUCTION</span>
+            </div>
+            <h4>UAT & Production Support</h4>
+            <p class="skill-desc">Facilitating business stakeholder sign-offs, deployment day smoke testing, and active post-release monitoring.</p>
+          </div>
+          <div class="skill-bar-wrap">
+            <div class="skill-bar-labels">
+              <span>Proficiency</span>
+              <span>Advanced (95%)</span>
+            </div>
+            <div class="skill-progress-track">
+              <div class="skill-progress-fill" style="width: 95%;"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 10. Git & Bitbucket -->
+        <div class="skill-card" data-category="tools">
+          <div>
+            <div class="skill-card-top">
+              <div class="skill-icon-wrapper">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="18" cy="18" r="3"></circle><circle cx="6" cy="6" r="3"></circle><circle cx="18" cy="6" r="3"></circle><line x1="6" y1="9" x2="6" y2="21"></line><path d="M6 18a9 9 0 0 0 9-9"></path></svg>
+              </div>
+              <span class="skill-category-badge">VCS</span>
+            </div>
+            <h4>Git & Bitbucket</h4>
+            <p class="skill-desc">Branching strategies, pull request reviews, test repository maintenance, and collaborative code merging.</p>
+          </div>
+          <div class="skill-bar-wrap">
+            <div class="skill-bar-labels">
+              <span>Proficiency</span>
+              <span>Proficient (88%)</span>
+            </div>
+            <div class="skill-progress-track">
+              <div class="skill-progress-fill" style="width: 88%;"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       CAREER EXPERIENCE TIMELINE
+       ========================================================================== -->
+  <section class="experience-section" id="experience">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Career History</span>
+        <h2 class="section-title">Professional Experience</h2>
+        <p class="section-subtitle">
+          Over 2+ years of consistent execution delivering quality excellence across Agile engineering teams.
+        </p>
+      </div>
+
+      <div class="timeline-wrapper">
+        <!-- Job 1: Techostinger India Private Limited -->
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-card">
+            <div class="timeline-header">
+              <div class="timeline-role-info">
+                <h3>Quality Engineer</h3>
+                <div class="timeline-company">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg>
+                  <span>Techostinger India Private Limited</span>
+                </div>
+              </div>
+              <span class="timeline-dates">July 2026 – Present</span>
+            </div>
+
+            <div class="timeline-project-badge">Project: MakeYourJodi (Matrimonial Application)</div>
+
+            <ul class="timeline-bullets">
+              <li>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <span><strong>Platform Ownership:</strong> Own manual testing for the MakeYourJodi platform, running functional, regression, and exploratory test cycles across core modules including profile matching algorithms and real-time messaging.</span>
+              </li>
+              <li>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <span><strong>UAT Leadership:</strong> Lead comprehensive UAT cycles, validating feature deliverables against business requirements and securing formal stakeholder sign-offs prior to release.</span>
+              </li>
+              <li>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <span><strong>Live/Production Validation:</strong> Perform testing and validation directly on the live/production environment, verifying release stability and catching potential defects post-deployment.</span>
+              </li>
+              <li>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <span><strong>Early Defect Detection:</strong> Design and execute test cases from user stories and requirements to catch defects early and safeguard the end-user experience.</span>
+              </li>
+              <li>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <span><strong>Defect Lifecycle Management:</strong> Log, triage, and track defects to complete resolution in Jira, collaborating closely with developers and product stakeholders to confirm fixes.</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Job 2: AU Technology Consulting -->
+        <div class="timeline-item">
+          <div class="timeline-dot emerald"></div>
+          <div class="timeline-card">
+            <div class="timeline-header">
+              <div class="timeline-role-info">
+                <h3>Quality Engineer</h3>
+                <div class="timeline-company">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg>
+                  <span>AU Technology Consulting</span>
+                </div>
+              </div>
+              <span class="timeline-dates">December 2023 – February 2026</span>
+            </div>
+
+            <div class="timeline-project-badge" style="background:rgba(16,185,129,0.12);color:#10b981;border-color:rgba(16,185,129,0.3);">Project: HIS (Hospital Information System)</div>
+
+            <ul class="timeline-bullets">
+              <li>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <span><strong>Core Hospital Workflows:</strong> Validated core HIS modules — patient registration, inpatient admissions, bed discharge/transfer, and clinical reporting — guaranteeing functional correctness and data consistency.</span>
+              </li>
+              <li>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <span><strong>Test Case Design:</strong> Designed, reviewed, and executed test cases from business requirements and use cases across functional, regression, and integration cycles.</span>
+              </li>
+              <li>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <span><strong>API Testing Suites:</strong> Built and maintained Postman collections for REST API validation, asserting response payloads, status codes, and HTTP headers.</span>
+              </li>
+              <li>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <span><strong>Multi-Tool Defect Triage:</strong> Managed the defect lifecycle in Jira, HP ALM, and ClearQuest, utilizing sprint boards for real-time visibility and partnering with developers and BAs on root-cause analysis.</span>
+              </li>
+              <li>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <span><strong>Requirement Ambiguity Flagging:</strong> Reviewed specifications early to flag ambiguities and testing gaps, significantly reducing downstream rework.</span>
+              </li>
+              <li>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <span><strong>Knowledge Sharing & Walkthroughs:</strong> Facilitated knowledge-sharing sessions and feature walkthroughs to accelerate team readiness on new functionality.</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       EDUCATION & CREDENTIALS
+       ========================================================================== -->
+  <section class="education-section" id="education">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Academic Background</span>
+        <h2 class="section-title">Education & Foundation</h2>
+      </div>
+
+      <div class="edu-grid">
+        <div class="edu-card">
+          <div class="edu-icon-box">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 10v6M2 10l10-5 10 5-10 5z"></path><path d="M6 12v5c3 3 9 3 12 0v-5"></path></svg>
+          </div>
+          <div class="edu-info">
+            <h3>Master of Computer Applications (MCA)</h3>
+            <div class="edu-institution">New Horizon College of Engineering, Bengaluru</div>
+            <div class="edu-meta">2021 – 2023 &bull; Full Time Postgraduate</div>
+            <p>Rigorous computer science curriculum focusing on software engineering principles, object-oriented programming (Java), database systems (SQL), and software testing methodologies.</p>
+          </div>
+        </div>
+
+        <div class="edu-card">
+          <div class="edu-icon-box" style="background:rgba(16,185,129,0.12);color:var(--accent-emerald);">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
+          </div>
+          <div class="edu-info">
+            <h3>Language Proficiency & Background</h3>
+            <div class="edu-institution">Professional Communication & Collaboration</div>
+            <div class="edu-meta">English &bull; Hindi &bull; Nationality: Indian</div>
+            <p>Effective communicator in multi-disciplinary Agile teams, adept at collaborating with international stakeholders, onshore/offshore developers, and product leads.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       CONTACT SECTION
+       ========================================================================== -->
+  <section class="contact-section" id="contact">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Let's Connect</span>
+        <h2 class="section-title">Get In Touch</h2>
+        <p class="section-subtitle">
+          I am currently open to new roles as a Quality Engineer or SDET. Reach out directly or send a message below.
+        </p>
+      </div>
+
+      <div class="contact-grid">
+        <!-- Left: Quick Direct Contact Info -->
+        <div class="contact-info-panel">
+          <!-- Phone Card -->
+          <div class="contact-info-card">
+            <div class="contact-card-left">
+              <div class="contact-icon">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+              </div>
+              <div class="contact-details">
+                <span>Direct Phone</span>
+                <strong>+91 8292694318</strong>
+              </div>
+            </div>
+            <button class="copy-btn copy-trigger" data-copy="8292694318" title="Copy Phone Number">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+              <span>Copy</span>
+            </button>
+          </div>
+
+          <!-- Email Card -->
+          <div class="contact-info-card">
+            <div class="contact-card-left">
+              <div class="contact-icon">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+              </div>
+              <div class="contact-details">
+                <span>Direct Email</span>
+                <strong>pramrish.prabhashan@gmail.com</strong>
+              </div>
+            </div>
+            <button class="copy-btn copy-trigger" data-copy="pramrish.prabhashan@gmail.com" title="Copy Email">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+              <span>Copy</span>
+            </button>
+          </div>
+
+          <!-- LinkedIn Card -->
+          <div class="contact-info-card">
+            <div class="contact-card-left">
+              <div class="contact-icon">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+              </div>
+              <div class="contact-details">
+                <span>LinkedIn Profile</span>
+                <strong>pramrish-prabhasan</strong>
+              </div>
+            </div>
+            <a href="https://linkedin.com/in/pramrish-prabhasan" target="_blank" rel="noopener noreferrer" class="copy-btn" title="Open LinkedIn Profile">
+              <span>View</span>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+            </a>
+          </div>
+
+          <!-- Location Card -->
+          <div class="contact-info-card">
+            <div class="contact-card-left">
+              <div class="contact-icon">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+              </div>
+              <div class="contact-details">
+                <span>Current Location</span>
+                <strong>Bengaluru, Karnataka, India</strong>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right: Interactive Message Form -->
+        <div class="contact-form-panel">
+          <form id="contactForm">
+            <div class="form-group">
+              <label for="formName" class="form-label">Your Name / Recruiter Name *</label>
+              <input type="text" id="formName" class="form-input" placeholder="e.g. Sarah Mitchell" required>
+            </div>
+
+            <div class="form-group">
+              <label for="formEmail" class="form-label">Your Professional Email *</label>
+              <input type="email" id="formEmail" class="form-input" placeholder="e.g. sarah@company.com" required>
+            </div>
+
+            <div class="form-group">
+              <label for="formSubject" class="form-label">Subject</label>
+              <input type="text" id="formSubject" class="form-input" placeholder="Opportunity: Senior Quality Engineer / SDET">
+            </div>
+
+            <div class="form-group">
+              <label for="formMessage" class="form-label">Message *</label>
+              <textarea id="formMessage" class="form-textarea" placeholder="Hello Pramrish, we reviewed your QA portfolio and would love to discuss a Quality Engineer role..." required></textarea>
+            </div>
+
+            <button type="submit" class="btn btn-primary" style="width:100%;">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+              <span>Send Message Directly</span>
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       FOOTER
+       ========================================================================== -->
+  <footer class="footer">
+    <div class="container footer-content">
+      <div class="footer-text">
+        &copy; 2026 <strong>Pramrish Prabhasan</strong> &bull; Quality Engineer. Designed with precision & zero defects.
+      </div>
+      <div class="footer-badge">
+        <span class="pulse-dot"></span>
+        <span>Quality Verified &bull; 100% Test Coverage</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ==========================================================================
+       MODAL 1: ATS RESUME VIEWER & EXPORT
+       ========================================================================== -->
+  <div class="modal-overlay" id="resumeModal" role="dialog" aria-modal="true" aria-labelledby="resumeModalTitle">
+    <div class="modal-container">
+      <div class="modal-header">
+        <h3 class="modal-title" id="resumeModalTitle">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="color:var(--accent-cyan);"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line></svg>
+          <span>Pramrish Prabhasan — Formal ATS Resume</span>
+        </h3>
+        <button class="modal-close-btn modal-close-trigger" aria-label="Close modal">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+        </button>
+      </div>
+
+      <div class="modal-body">
+        <div class="resume-paper" id="resumePaperView">
+          <div class="resume-paper-header">
+            <h2>PRAMRISH PRABHASAN</h2>
+            <div class="resume-contact-row">
+              <span>Phone: 8292694318</span>
+              <span>&bull;</span>
+              <span>Email: pramrish.prabhashan@gmail.com</span>
+              <span>&bull;</span>
+              <span>LinkedIn: linkedin.com/in/pramrish-prabhasan</span>
+            </div>
+          </div>
+
+          <h4 class="resume-sec-title">PROFESSIONAL SUMMARY</h4>
+          <p>
+            Quality Engineer with 2+ years testing web applications across the healthcare and matrimonial domains, 
+            covering the full STLC from test planning through UAT sign-off and live/production validation. Strong track 
+            record designing and executing functional, regression, integration, and exploratory test suites, and driving 
+            defects to closure in Jira, HP ALM, and ClearQuest. Comfortable working directly with developers, BAs, and product 
+            owners in Agile teams to catch issues early and keep releases on schedule. Automation-capable with Selenium WebDriver, 
+            TestNG, and Jenkins CI/CD.
+          </p>
+
+          <h4 class="resume-sec-title">CORE COMPETENCIES</h4>
+          <p>
+            Manual & Automation Testing | UAT Coordination | Live/Production Support Testing | Regression & Integration Testing | 
+            Defect Management | Agile/Scrum | Cross-functional Collaboration
+          </p>
+
+          <h4 class="resume-sec-title">TECHNICAL SKILLS</h4>
+          <p>
+            <strong>Testing Types:</strong> Manual, Functional, Regression, Smoke, Sanity, Integration, System, UAT, Exploratory<br>
+            <strong>Test Management:</strong> Jira, HP ALM, ClearQuest<br>
+            <strong>Automation:</strong> Selenium WebDriver, TestNG, Maven, ExtentReports<br>
+            <strong>CI/CD:</strong> Jenkins<br>
+            <strong>Programming Languages:</strong> Java<br>
+            <strong>Version Control:</strong> Git, Bitbucket<br>
+            <strong>Methodologies:</strong> Agile, Scrum, Sprint Planning, Daily Stand-up, Sprint Retrospective<br>
+            <strong>Operating Systems:</strong> Windows
+          </p>
+
+          <h4 class="resume-sec-title">PROFESSIONAL EXPERIENCE</h4>
+          <div style="margin-bottom: 16px;">
+            <div style="display:flex; justify-content:space-between; font-weight:700;">
+              <span>Quality Engineer — Techostinger India Private Limited</span>
+              <span>July 2026 – Present</span>
+            </div>
+            <div style="color:var(--accent-cyan); font-weight:600; font-size:0.88rem; margin-bottom: 6px;">Project: MakeYourJodi (Matrimonial Application)</div>
+            <ul style="padding-left: 20px; font-size: 0.9rem; display: flex; flex-direction: column; gap: 4px;">
+              <li>Own manual testing for the MakeYourJodi matrimonial platform, running functional, regression, and exploratory test cycles across core modules such as profile matching and messaging.</li>
+              <li>Lead UAT cycles, validating features against business requirements and securing stakeholder sign-off before release.</li>
+              <li>Perform testing and validation on the live/production environment, confirming release stability and catching issues that surface post-deployment.</li>
+              <li>Design and execute test cases from user stories and requirements to catch defects early and protect the end-user experience.</li>
+              <li>Log, triage, and track defects to resolution, working closely with developers and product stakeholders to confirm fixes.</li>
+            </ul>
+          </div>
+
+          <div style="margin-bottom: 16px;">
+            <div style="display:flex; justify-content:space-between; font-weight:700;">
+              <span>Quality Engineer — AU Technology Consulting</span>
+              <span>December 2023 – February 2026</span>
+            </div>
+            <div style="color:var(--accent-emerald); font-weight:600; font-size:0.88rem; margin-bottom: 6px;">Project: HIS (Hospital Information System)</div>
+            <ul style="padding-left: 20px; font-size: 0.9rem; display: flex; flex-direction: column; gap: 4px;">
+              <li>Validated core HIS modules — registration, admissions, discharge/transfer, and reporting — ensuring functional correctness and data consistency across web application workflows.</li>
+              <li>Designed, reviewed, and executed test cases from business requirements and use cases across functional and regression cycles.</li>
+              <li>Ran functional, regression, and integration testing, plus exploratory sessions that surfaced edge cases and usability gaps before release.</li>
+              <li>Built and maintained Postman collections for API testing, validating response payloads, status codes, and headers.</li>
+              <li>Managed the full defect lifecycle in Jira, HP ALM, and ClearQuest, using sprint boards for real-time visibility and partnering with developers, BAs, and product owners on root-cause analysis.</li>
+              <li>Reviewed requirements and design specs to flag ambiguities and testing gaps early, reducing downstream rework.</li>
+              <li>Maintained test data, environment configurations, and pre-conditions to keep test execution consistent and repeatable across cycles.</li>
+              <li>Re-tested and regression-checked bug fixes to confirm no impact on existing functionality.</li>
+              <li>Coordinated UAT and release activities, supporting cross-functional teams through deployment.</li>
+              <li>Led knowledge-sharing sessions and feature walkthroughs to bring the team up to speed on new functionality.</li>
+            </ul>
+          </div>
+
+          <h4 class="resume-sec-title">EDUCATION</h4>
+          <div style="display:flex; justify-content:space-between; font-weight:700;">
+            <span>Master of Computer Applications (MCA)</span>
+            <span>2021 – 2023</span>
+          </div>
+          <div>New Horizon College of Engineering, Bengaluru</div>
+
+          <h4 class="resume-sec-title">ADDITIONAL INFORMATION</h4>
+          <p>Languages: English, Hindi &bull; Nationality: Indian</p>
+        </div>
+      </div>
+
+      <div class="modal-footer">
+        <button class="btn btn-outline btn-sm" id="copyAtsBtn">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+          <span>Copy Clean Text</span>
+        </button>
+        <button class="btn btn-primary btn-sm" id="printResumeBtn">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 6 2 18 2 18 9"></polyline><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path><rect x="6" y="14" width="12" height="8"></rect></svg>
+          <span>Print / Save PDF</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==========================================================================
+       MODAL 2: PROJECT QA ARTIFACTS
+       ========================================================================== -->
+  <div class="modal-overlay" id="artifactsModal" role="dialog" aria-modal="true" aria-labelledby="artifactsModalTitle">
+    <div class="modal-container">
+      <div class="modal-header">
+        <h3 class="modal-title" id="artifactsModalTitle">Project QA Architecture & Deliverables</h3>
+        <button class="modal-close-btn modal-close-trigger" aria-label="Close modal">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+        </button>
+      </div>
+      <div class="modal-body" id="artifactsModalBody">
+        <!-- Injected via JavaScript -->
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-outline btn-sm modal-close-trigger">Close</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==========================================================================
+       MODAL 3: TEST CODE SNIPPET INSPECTOR
+       ========================================================================== -->
+  <div class="modal-overlay" id="codeModal" role="dialog" aria-modal="true" aria-labelledby="codeModalTitle">
+    <div class="modal-container">
+      <div class="modal-header">
+        <h3 class="modal-title" id="codeModalTitle">Test Implementation Code</h3>
+        <button class="modal-close-btn modal-close-trigger" aria-label="Close modal">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+        </button>
+      </div>
+      <div class="modal-body">
+        <pre style="background:#090d16; padding:20px; border-radius:10px; border:1px solid var(--border-subtle); overflow-x:auto; font-family:var(--font-mono); font-size:0.86rem; color:#38bdf8; line-height:1.6;"><code id="codeSnippetContent"></code></pre>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-outline btn-sm modal-close-trigger">Done</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast Notification Container -->
+  <div class="toast-notice" id="toastNotice"></div>
+
+  <!-- Main JavaScript File -->
+  <script src="js/main.js"></script>
+</body>
+</html>
