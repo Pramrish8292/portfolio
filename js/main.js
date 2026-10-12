@@ -1197,8 +1197,8 @@ TECHNICAL SKILLS
 
 PROFESSIONAL EXPERIENCE
 Quality Engineer | July 2026 – Present
-Techostinger India Private Limited (MakeYourJodi - Matrimonial Application)
-- Manual testing for the MakeYourJodi matrimonial platform, running functional, regression, and exploratory test cycles across core modules such as profile matching and messaging.
+Techostinger India Private Limited (MakeYourJodi - Matrimonial Application - https://www.makeyourjodi.com)
+- Manual testing for the MakeYourJodi matrimonial platform (https://www.makeyourjodi.com), running functional, regression, and exploratory test cycles across core modules such as profile matching and messaging.
 - Coordinate UAT cycles, validating features against business requirements and securing stakeholder sign-off before release.
 - Perform testing and validation on the live/production environment, confirming release stability and catching issues that surface post-deployment.
 - Design and execute test cases from user stories and requirements to catch defects early and protect the end-user experience.
