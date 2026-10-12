@@ -855,7 +855,7 @@ function loadArtifactModalContent(projKey) {
     container.innerHTML = `
       <div style="font-family: var(--font-body); font-size: 0.95rem; line-height: 1.7;">
         <h3 style="color:var(--accent-cyan); margin-bottom: 8px;">1. Test Strategy & Scope</h3>
-        <p style="margin-bottom: 16px;">Comprehensive test plan covering end-to-end user journeys for matchmaking: registration, profile approval, matching algorithms (filters for age, location, occupation), real-time messaging, and subscription checkout.</p>
+        <p style="margin-bottom: 16px;">Comprehensive test plan covering end-to-end user journeys for the live matrimonial web application (<a href="https://www.makeyourjodi.com" target="_blank" rel="noopener noreferrer" style="color:var(--accent-cyan); text-decoration:underline;">www.makeyourjodi.com ↗</a>): user registration, profile approval, matching algorithms (filters for age, location, occupation), real-time messaging, and subscription checkout.</p>
         
         <h3 style="color:var(--accent-cyan); margin-bottom: 8px;">2. Defect Lifecycle & Triage Process</h3>
         <div style="background:rgba(255,255,255,0.03); padding:16px; border-radius:8px; border:1px solid var(--border-subtle); margin-bottom:16px;">
@@ -1198,7 +1198,7 @@ TECHNICAL SKILLS
 PROFESSIONAL EXPERIENCE
 Quality Engineer | July 2026 – Present
 Techostinger India Private Limited (MakeYourJodi - Matrimonial Application)
-- Own manual testing for the MakeYourJodi matrimonial platform, running functional, regression, and exploratory test cycles across core modules such as profile matching and messaging.
+- Manual testing for the MakeYourJodi matrimonial platform, running functional, regression, and exploratory test cycles across core modules such as profile matching and messaging.
 - Coordinate UAT cycles, validating features against business requirements and securing stakeholder sign-off before release.
 - Perform testing and validation on the live/production environment, confirming release stability and catching issues that surface post-deployment.
 - Design and execute test cases from user stories and requirements to catch defects early and protect the end-user experience.
