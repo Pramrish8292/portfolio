@@ -103,31 +103,31 @@
 
 /* Light Theme Badges for Projects (Healthcare Enterprise, Matrimonial, Mission Critical, Live Prod QA) */
 [data-theme="light"] .badge-matrimonial {
-  background: #ede9fe;
-  color: #6d28d9;
-  border: 1px solid #c4b5fd;
-  box-shadow: 0 2px 8px rgba(109, 40, 217, 0.12);
+  background: #ede9fe !important;
+  color: #581c87 !important;
+  border: 1.5px solid #a855f7 !important;
+  box-shadow: 0 4px 12px rgba(88, 28, 135, 0.18) !important;
 }
 
 [data-theme="light"] .badge-cyan {
-  background: #e0f2fe;
-  color: #0369a1;
-  border: 1px solid #7dd3fc;
-  box-shadow: 0 2px 8px rgba(2, 132, 199, 0.12);
+  background: #e0f2fe !important;
+  color: #0369a1 !important;
+  border: 1.5px solid #0284c7 !important;
+  box-shadow: 0 4px 12px rgba(3, 105, 161, 0.18) !important;
 }
 
 [data-theme="light"] .badge-healthcare {
-  background: #d1fae5;
-  color: #047857;
-  border: 1px solid #6ee7b7;
-  box-shadow: 0 2px 8px rgba(5, 150, 105, 0.12);
+  background: #d1fae5 !important;
+  color: #065f46 !important;
+  border: 1.5px solid #10b981 !important;
+  box-shadow: 0 4px 12px rgba(6, 95, 70, 0.18) !important;
 }
 
 [data-theme="light"] .badge-emerald {
-  background: #ecfdf5;
-  color: #065f46;
-  border: 1px solid #a7f3d0;
-  box-shadow: 0 2px 8px rgba(5, 150, 105, 0.12);
+  background: #ecfdf5 !important;
+  color: #047857 !important;
+  border: 1.5px solid #059669 !important;
+  box-shadow: 0 4px 12px rgba(4, 120, 87, 0.18) !important;
 }
 
 [data-theme="light"] .project-title {
@@ -849,20 +849,20 @@ button {
   width: 100%;
   max-width: 380px;
   height: auto;
-  aspect-ratio: 3.2 / 4;
-  object-fit: cover;
-  object-position: center top;
-  border-radius: 28px 28px 0 0;
   display: block;
-  /* Organic soft bottom fade */
-  -webkit-mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 0%, rgba(0,0,0,1) 68%, rgba(0,0,0,0.7) 84%, rgba(0,0,0,0) 100%);
-  mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 0%, rgba(0,0,0,1) 68%, rgba(0,0,0,0.7) 84%, rgba(0,0,0,0) 100%);
-  filter: drop-shadow(0 20px 40px rgba(0, 242, 254, 0.15));
+  background: transparent !important;
+  border: none !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  /* Organic soft bottom fade directly into page background */
+  -webkit-mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 0%, rgba(0,0,0,1) 74%, rgba(0,0,0,0.5) 88%, rgba(0,0,0,0) 100%);
+  mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 0%, rgba(0,0,0,1) 74%, rgba(0,0,0,0.5) 88%, rgba(0,0,0,0) 100%);
+  filter: drop-shadow(0 15px 30px rgba(0, 242, 254, 0.22));
   transition: transform var(--transition-normal);
 }
 
 .hero-photo:hover {
-  transform: scale(1.02);
+  transform: translateY(-4px) scale(1.02);
 }
 
 .hero-photo-fade-bottom {
@@ -870,11 +870,9 @@ button {
   bottom: 0;
   left: 0;
   right: 0;
-  height: 80px;
+  height: 65px;
   background: linear-gradient(to bottom, transparent 0%, var(--bg-body) 100%);
   pointer-events: none;
-  backdrop-filter: blur(2px);
-  -webkit-backdrop-filter: blur(2px);
 }
 
 /* Floating QA Badges on Hero Image */
@@ -1336,38 +1334,43 @@ button {
 .domain-badge {
   padding: 6px 14px;
   border-radius: var(--radius-full);
-  font-size: 0.78rem;
+  font-size: 0.8rem;
   font-weight: 700;
   font-family: var(--font-mono);
-  backdrop-filter: blur(8px);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  letter-spacing: 0.02em;
 }
 
 .badge-matrimonial {
-  background: rgba(139, 92, 246, 0.25);
-  color: #d8b4fe;
-  border: 1px solid rgba(139, 92, 246, 0.45);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+  background: rgba(15, 23, 42, 0.94) !important;
+  color: #c084fc !important;
+  border: 1px solid rgba(192, 132, 252, 0.6) !important;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.5) !important;
 }
 
 .badge-cyan {
-  background: rgba(0, 242, 254, 0.22);
-  color: #38bdf8;
-  border: 1px solid rgba(0, 242, 254, 0.45);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+  background: rgba(15, 23, 42, 0.94) !important;
+  color: #38bdf8 !important;
+  border: 1px solid rgba(56, 189, 248, 0.6) !important;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.5) !important;
 }
 
 .badge-healthcare {
-  background: rgba(16, 185, 129, 0.25);
-  color: #6ee7b7;
-  border: 1px solid rgba(16, 185, 129, 0.45);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+  background: rgba(15, 23, 42, 0.94) !important;
+  color: #34d399 !important;
+  border: 1px solid rgba(52, 211, 153, 0.6) !important;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.5) !important;
 }
 
 .badge-emerald {
-  background: rgba(16, 185, 129, 0.22);
-  color: #34d399;
-  border: 1px solid rgba(16, 185, 129, 0.45);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+  background: rgba(15, 23, 42, 0.94) !important;
+  color: #10b981 !important;
+  border: 1px solid rgba(16, 185, 129, 0.6) !important;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.5) !important;
 }
 
 .project-content {
