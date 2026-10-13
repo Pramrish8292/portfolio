@@ -1,11 +1,15 @@
 # 🚀 Pramrish Prabhasan — Quality Engineer Portfolio
 
 [![Quality Assurance](https://img.shields.io/badge/Role-Quality%20Engineer-00f2fe?style=for-the-badge)](https://linkedin.com/in/pramrish-prabhasan)
-[![Automation](https://img.shields.io/badge/Automation-Selenium%20%7C%20TestNG-10b981?style=for-the-badge)](https://github.com/Pramrish8292/portfolio-website)
-[![API Testing](https://img.shields.io/badge/API-Postman%20REST-ff6c37?style=for-the-badge)](https://github.com/Pramrish8292/portfolio-website)
-[![CI/CD](https://img.shields.io/badge/CI%2FCD-Jenkins-d33833?style=for-the-badge)](https://github.com/Pramrish8292/portfolio-website)
+[![Automation](https://img.shields.io/badge/Automation-Selenium%20%7C%20TestNG-10b981?style=for-the-badge)](https://github.com/pramrish/portfolio)
+[![API Testing](https://img.shields.io/badge/API-Postman%20REST-ff6c37?style=for-the-badge)](https://github.com/pramrish/portfolio)
+[![CI/CD](https://img.shields.io/badge/CI%2FCD-Jenkins-d33833?style=for-the-badge)](https://github.com/pramrish/portfolio)
+[![Live Site](https://img.shields.io/badge/Live%20Portfolio-pramrish%2Fportfolio-00f2fe?style=for-the-badge)](https://pramrish.github.io/portfolio)
 
 A modern, high-tech portfolio website built for **Pramrish Prabhasan**, a Quality Engineer with 2+ years of experience testing enterprise web applications across Healthcare (Hospital Information Systems) and Matrimonial platforms.
+
+🌐 **Live URL**: [https://pramrish.github.io/portfolio](https://pramrish.github.io/portfolio)
+📂 **GitHub Repository**: [pramrish/portfolio](https://github.com/pramrish/portfolio)
 
 ---
 
