@@ -3,8 +3,7 @@
    Theme: High-Tech Dark Cybernetic & Sleek Clean Light Mode
    Typography: Space Grotesk, Plus Jakarta Sans, JetBrains Mono
    ========================================================================== */
-
-@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap');
+/* Google Fonts loaded via preconnected <link> in index.html head */
 
 :root {
   /* Dark Theme (Default) */
@@ -825,55 +824,72 @@ button {
   color: var(--accent-cyan);
 }
 
-/* Hero Visual / Avatar (Clean Seamless Portrait, No Card, Soft Bottom Blur Fade) */
+/* Hero Visual Card (Framed Cybernetic Glass Card) */
 .hero-visual {
   position: relative;
   display: flex;
   justify-content: center;
-  align-items: flex-end;
+  align-items: center;
 }
 
-.hero-photo-container {
+.hero-image-wrapper {
   position: relative;
   width: 100%;
   max-width: 380px;
-  display: flex;
-  justify-content: center;
-  align-items: flex-end;
-  background: transparent;
-  border: none;
-  box-shadow: none;
+  padding: 10px;
+  background: linear-gradient(145deg, rgba(22, 34, 58, 0.75), rgba(13, 18, 31, 0.9));
+  border: 1px solid rgba(0, 242, 254, 0.24);
+  border-radius: 26px;
+  box-shadow: 0 24px 50px rgba(0, 0, 0, 0.6), 0 0 30px rgba(0, 242, 254, 0.16);
+  backdrop-filter: blur(16px);
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.25s ease, border-color 0.25s ease;
+  will-change: transform;
 }
 
-.hero-photo {
+.hero-image-wrapper:hover {
+  border-color: rgba(0, 242, 254, 0.45);
+  box-shadow: 0 28px 60px rgba(0, 0, 0, 0.7), 0 0 40px rgba(0, 242, 254, 0.28);
+}
+
+.hero-image-inner {
+  position: relative;
   width: 100%;
-  max-width: 380px;
-  height: auto;
+  aspect-ratio: 4 / 5;
+  border-radius: 18px;
+  overflow: hidden;
+  background: #0d121f;
+}
+
+.hero-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
   display: block;
-  background: transparent !important;
-  border: none !important;
-  border-radius: 0 !important;
-  box-shadow: none !important;
-  /* Seamless organic blend on all sides: left, bottom, top, matching the natural right contour */
-  -webkit-mask-image: 
-    linear-gradient(to bottom, rgba(0,0,0,1) 0%, rgba(0,0,0,1) 72%, rgba(0,0,0,0.3) 88%, rgba(0,0,0,0) 100%),
-    linear-gradient(to right, rgba(0,0,0,0) 0%, rgba(0,0,0,0.4) 4%, rgba(0,0,0,1) 14%, rgba(0,0,0,1) 100%);
-  -webkit-mask-composite: source-in;
-  mask-image: 
-    linear-gradient(to bottom, rgba(0,0,0,1) 0%, rgba(0,0,0,1) 72%, rgba(0,0,0,0.3) 88%, rgba(0,0,0,0) 100%),
-    linear-gradient(to right, rgba(0,0,0,0) 0%, rgba(0,0,0,0.4) 4%, rgba(0,0,0,1) 14%, rgba(0,0,0,1) 100%);
-  mask-composite: intersect;
-  filter: drop-shadow(0 15px 30px rgba(0, 242, 254, 0.22));
+  border-radius: 18px;
   transition: transform var(--transition-normal);
 }
 
-.hero-photo:hover {
-  transform: translateY(-4px) scale(1.02);
+.hero-image-wrapper:hover .hero-image {
+  transform: scale(1.02);
 }
 
-.hero-photo-fade-bottom {
-  display: none;
+/* Light Mode Card Adaptations */
+[data-theme="light"] .hero-image-wrapper {
+  background: linear-gradient(145deg, rgba(255, 255, 255, 0.95), rgba(241, 245, 249, 0.95));
+  border: 1px solid rgba(14, 165, 233, 0.3);
+  box-shadow: 0 20px 45px rgba(15, 23, 42, 0.1), 0 0 30px rgba(14, 165, 233, 0.15);
 }
+
+[data-theme="light"] .hero-image-wrapper:hover {
+  border-color: rgba(14, 165, 233, 0.55);
+  box-shadow: 0 24px 55px rgba(15, 23, 42, 0.14), 0 0 38px rgba(14, 165, 233, 0.25);
+}
+
+[data-theme="light"] .hero-image-inner {
+  background: #e2e8f0;
+}
+
 
 /* Floating QA Badges on Hero Image */
 .floating-badge {
@@ -2303,10 +2319,19 @@ button, a, .contact-chip, .suite-tab, .filter-btn, .stlc-step-card, .skill-card 
     margin: 0 auto 12px;
   }
 
-  .hero-photo-container {
+  .hero-image-wrapper {
     max-width: 290px;
     margin: 0 auto;
-    padding: 0;
+    padding: 8px;
+    border-radius: 22px;
+  }
+
+  .hero-image-inner {
+    border-radius: 16px;
+  }
+
+  .hero-image {
+    border-radius: 16px;
   }
 
   .hero-name {
