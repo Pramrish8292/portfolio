@@ -858,7 +858,7 @@ function loadArtifactModalContent(projKey) {
         <p style="margin-bottom: 16px;">Comprehensive test plan covering end-to-end user journeys for the live matrimonial web application (<a href="https://www.makeyourjodi.com" target="_blank" rel="noopener noreferrer" style="color:var(--accent-cyan); text-decoration:underline;">www.makeyourjodi.com ↗</a>): user registration, profile approval, matching algorithms (filters for age, location, occupation), real-time messaging, and subscription checkout.</p>
         
         <h3 style="color:var(--accent-cyan); margin-bottom: 8px;">2. Defect Lifecycle & Triage Process</h3>
-        <div style="background:rgba(255,255,255,0.03); padding:16px; border-radius:8px; border:1px solid var(--border-subtle); margin-bottom:16px;">
+        <div style="background:var(--bg-pill); padding:16px; border-radius:8px; border:1px solid var(--border-subtle); margin-bottom:16px;">
           <ul style="padding-left: 20px; display:flex; flex-direction:column; gap:8px;">
             <li><strong>Jira Workflow:</strong> Open ➔ In Triage ➔ Assigned to Dev ➔ Fix Ready ➔ QA Regression ➔ Closed.</li>
             <li><strong>Severity S1 (Blocker):</strong> Immediate halt, root-cause analysis with Product Owner & Development Team.</li>
@@ -870,7 +870,7 @@ function loadArtifactModalContent(projKey) {
         <div style="overflow-x:auto; -webkit-overflow-scrolling:touch; width:100%; margin-top:8px; border:1px solid var(--border-subtle); border-radius:8px;">
           <table style="width:100%; min-width:550px; border-collapse:collapse; font-size:0.85rem;">
             <thead>
-              <tr style="background:rgba(255,255,255,0.06); text-align:left;">
+              <tr style="background:var(--bg-pill); text-align:left;">
                 <th style="padding:8px 12px; border-bottom:1px solid var(--border-subtle);">TC ID</th>
                 <th style="padding:8px 12px; border-bottom:1px solid var(--border-subtle);">Test Scenario</th>
                 <th style="padding:8px 12px; border-bottom:1px solid var(--border-subtle);">Pre-conditions</th>
@@ -906,7 +906,7 @@ function loadArtifactModalContent(projKey) {
         <p style="margin-bottom: 16px;">Rigorous validation of patient workflows: Inpatient/Outpatient admissions, bed transfers, electronic health records (EHR), lab investigations, and billing discharge summaries. High emphasis on data integrity and Zero Patient Record Duplication.</p>
         
         <h3 style="color:var(--accent-emerald); margin-bottom: 8px;">2. API Testing Suites (Postman Collections)</h3>
-        <div style="background:rgba(255,255,255,0.03); padding:16px; border-radius:8px; border:1px solid var(--border-subtle); margin-bottom:16px;">
+        <div style="background:var(--bg-pill); padding:16px; border-radius:8px; border:1px solid var(--border-subtle); margin-bottom:16px;">
           <ul style="padding-left: 20px; display:flex; flex-direction:column; gap:8px;">
             <li><strong>80+ Endpoint Tests:</strong> Status code 200/201 checks, token validation, response schema JSON assertions.</li>
             <li><strong>ClearQuest & HP ALM:</strong> Logged and triaged over 150 defects with detailed trace logs and screenshots.</li>
