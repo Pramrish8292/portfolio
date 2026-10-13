@@ -38,6 +38,14 @@
   <meta name="twitter:description" content="Quality Engineer with 2+ years experience testing enterprise web applications across Healthcare and Matrimonial domains.">
   <meta name="twitter:image" content="https://pramrish.github.io/portfolio/assets/images/og-image.png">
   
+  <!-- Preconnect to Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap">
+
+  <!-- Preload Hero Image for Instant Display -->
+  <link rel="preload" as="image" href="./assets/images/pramrish-photo.jpg" fetchpriority="high">
+  
   <!-- CSS Stylesheet -->
   <link rel="stylesheet" href="css/style.css">
 </head>
@@ -155,11 +163,12 @@
         </div>
       </div>
 
-      <!-- Hero Visual Area (Clean Seamless Portrait, No Card, Soft Bottom Fade) -->
+      <!-- Hero Visual Area (Framed Cybernetic Card) -->
       <div class="hero-visual" id="heroVisualArea">
-        <div class="hero-photo-container" id="heroImageWrapper">
-          <img src="./assets/images/pramrish-photo.png" alt="Pramrish Prabhasan - Quality Engineer" class="hero-photo" loading="eager">
-          <div class="hero-photo-fade-bottom"></div>
+        <div class="hero-image-wrapper" id="heroImageWrapper">
+          <div class="hero-image-inner">
+            <img src="./assets/images/pramrish-photo.jpg" alt="Pramrish Prabhasan - Quality Engineer" class="hero-image" width="380" height="475" fetchpriority="high" loading="eager">
+          </div>
         </div>
       </div>
     </div>
