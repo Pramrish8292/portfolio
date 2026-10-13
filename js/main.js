@@ -63,8 +63,9 @@ function initCanvas() {
   let width, height;
   let particles = [];
   let sparks = [];
-  const particleCount = 55;
-  const maxDistance = 140;
+  const isMobile = window.innerWidth < 768;
+  const particleCount = isMobile ? 18 : 45;
+  const maxDistance = isMobile ? 95 : 135;
 
   function resize() {
     width = canvas.width = window.innerWidth;
